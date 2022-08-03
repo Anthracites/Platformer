@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{FE738E36-D24E-2706-F3BE-7DCE876B4DE9}</ProjectGuid>
+    <ProjectGuid>{B5A80689-7E22-B825-2511-1E6A365A0F47}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.Services.Core.Scheduler</AssemblyName>
@@ -56,11 +56,11 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library/PackageCache/com.unity.services.core@1.4.2/Runtime/Scheduler/TimeProvider/ITimeProvider.cs" />
     <Compile Include="Library/PackageCache/com.unity.services.core@1.4.2/Runtime/Scheduler/ActionScheduler.cs" />
+    <Compile Include="Library/PackageCache/com.unity.services.core@1.4.2/Runtime/Scheduler/AssemblyInfo.cs" />
+    <Compile Include="Library/PackageCache/com.unity.services.core@1.4.2/Runtime/Scheduler/TimeProvider/ITimeProvider.cs" />
     <Compile Include="Library/PackageCache/com.unity.services.core@1.4.2/Runtime/Scheduler/TimeProvider/UtcTimeProvider.cs" />
     <Compile Include="Library/PackageCache/com.unity.services.core@1.4.2/Runtime/Scheduler/BinaryHeap.cs" />
-    <Compile Include="Library/PackageCache/com.unity.services.core@1.4.2/Runtime/Scheduler/AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Library/PackageCache/com.unity.services.core@1.4.2/Runtime/Scheduler/Unity.Services.Core.Scheduler.asmdef" />
@@ -258,6 +258,9 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/AOT/Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject-usage">
+      <HintPath>Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Unsafe">
       <HintPath>Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
@@ -270,14 +273,14 @@
     <Reference Include="Unity.Burst.Cecil">
       <HintPath>Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Burst.Cecil.Rocks">
-      <HintPath>Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
-    </Reference>
     <Reference Include="DOTween">
       <HintPath>Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Burst.Cecil.Rocks">
+      <HintPath>Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
+    </Reference>
     <Reference Include="DDebug">
-      <HintPath>Assets/Doozy/Engine/Debug/DDebug.dll</HintPath>
+      <HintPath>Assets/Plugins/Doozy/Engine/Debug/DDebug.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>/Applications/Unity/Hub/Editor/2022.1.9f1/Unity.app/Contents/NetStandard/ref/2.1.0/netstandard.dll</HintPath>
@@ -648,15 +651,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.Services.Core.Internal.Player.csproj">
-      <Project>{96DBBFF2-A459-D62B-E7F9-90B877AD983C}</Project>
+      <Project>{279436B8-C17F-518B-8A68-D5C2185E1A1B}</Project>
       <Name>Unity.Services.Core.Internal.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Player.csproj">
-      <Project>{FFB61D09-5824-C961-0021-0B1F9737ABBE}</Project>
+      <Project>{A1434A96-FDC2-1167-EA31-186A25BCDF85}</Project>
       <Name>Unity.Services.Core.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.Player.csproj">
-      <Project>{8F63B36A-D120-150E-8A0F-91C9FD5B4FF1}</Project>
+      <Project>{83BAE7A1-07E3-969B-95CC-DB19FF399A91}</Project>
       <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
   </ItemGroup>

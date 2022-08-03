@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{75E51FEA-4557-AB00-448F-008C3DD53203}</ProjectGuid>
+    <ProjectGuid>{37189634-A19A-1675-EE69-4E8914E7B5BF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.VisualStudio.Editor</AssemblyName>
@@ -58,43 +58,43 @@
   <ItemGroup>
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/ProjectGeneration/ProjectGenerationFlag.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/VisualStudioIntegration.cs" />
-    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/UnityInstallation.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/KnownAssemblies.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/UsageUtility.cs" />
-    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Messaging/Deserializer.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Testing/TestRunnerApiListener.cs" />
-    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Testing/TestResultAdaptor.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Messaging/ExceptionEventArgs.cs" />
-    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/ProjectGeneration/ProjectGeneration.cs" />
-    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/SolutionProjectEntry.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Messaging/UdpSocket.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/VisualStudioInstallation.cs" />
-    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Messaging/MessageEventArgs.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Symbols.cs" />
+    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/SolutionProperties.cs" />
+    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/AssemblyInfo.cs" />
+    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/SolutionParser.cs" />
+    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Messaging/Messenger.cs" />
+    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Messaging/Serializer.cs" />
+    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/ProjectGeneration/ProjectProperties.cs" />
+    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/ProjectGeneration/FileIOProvider.cs" />
+    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Testing/TestRunnerCallbacks.cs" />
+    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Testing/TestAdaptor.cs" />
+    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/UnityInstallation.cs" />
+    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Messaging/Deserializer.cs" />
+    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Testing/TestResultAdaptor.cs" />
+    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/ProjectGeneration/ProjectGeneration.cs" />
+    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/SolutionProjectEntry.cs" />
+    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Messaging/MessageEventArgs.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/VisualStudioEditor.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/VersionPair.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Cli.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/FileUtility.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/ProjectGeneration/AssemblyNameProvider.cs" />
-    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/SolutionProperties.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Messaging/MessageType.cs" />
-    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/AssemblyInfo.cs" />
-    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/SolutionParser.cs" />
-    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Messaging/Messenger.cs" />
-    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Messaging/Serializer.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Messaging/TcpListener.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Messaging/TcpClient.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Image.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Solution.cs" />
-    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/ProjectGeneration/ProjectProperties.cs" />
-    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/ProjectGeneration/FileIOProvider.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/ProjectGeneration/GUIDProvider.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Testing/TestStatusAdaptor.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Messaging/Message.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/AsyncOperation.cs" />
     <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Discovery.cs" />
-    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Testing/TestRunnerCallbacks.cs" />
-    <Compile Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/Testing/TestAdaptor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Library/PackageCache/com.unity.ide.visualstudio@2.0.16/Editor/com.unity.ide.visualstudio.asmdef" />
@@ -772,19 +772,19 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{068892C7-80B6-5210-B9E5-2634E9EA0E05}</Project>
+      <Project>{820A4044-6BCF-10F7-8926-B104245DDDB6}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{41EC2B42-333A-A589-3CFE-6D447D525485}</Project>
+      <Project>{C7BFC451-98CB-FFD7-7769-B37E28E3A8F5}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{602F64E8-4015-1A42-5B6C-5ED2AD429AC9}</Project>
+      <Project>{A95B780F-A65D-3813-E6E1-DA5D1B0570F6}</Project>
       <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{F83B5348-F35A-B470-4F3E-E2AE10D49F3D}</Project>
+      <Project>{4AF3CE0A-BF55-493D-A413-9BAB67D941CF}</Project>
       <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>

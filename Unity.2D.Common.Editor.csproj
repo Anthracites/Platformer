@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8A35B20D-AB15-0F53-E3B7-AD5A9C61DD8E}</ProjectGuid>
+    <ProjectGuid>{0B78494E-7EE5-8603-F07E-41BB192F4B5D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.2D.Common.Editor</AssemblyName>
@@ -56,11 +56,11 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library/PackageCache/com.unity.2d.common@7.0.0/Editor/ImagePacker/Jobs/FindTightRectJob.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.common@7.0.0/Editor/InspectorUtils.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.common@7.0.0/Editor/ImagePacker/ImagePacker.cs" />
-    <Compile Include="Library/PackageCache/com.unity.2d.common@7.0.0/Editor/AssemblyInfo.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.common@7.0.0/Editor/TextureGenerator/TextureGeneratorHelper.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.common@7.0.0/Editor/ImagePacker/Jobs/FindTightRectJob.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.common@7.0.0/Editor/AssemblyInfo.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.common@7.0.0/Editor/ImagePacker/ImagePackNode.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.common@7.0.0/Editor/ImagePacker/ImagePackerDebugEditor.cs" />
   </ItemGroup>
@@ -341,11 +341,20 @@
     <Reference Include="UnityEditor.LinuxStandalone.Extensions">
       <HintPath>/Applications/Unity/Hub/Editor/2022.1.9f1/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject-usage">
+      <HintPath>Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@1.17.0/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
+      <HintPath>Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@1.17.0/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenEditor">
+      <HintPath>Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
       <HintPath>Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.Unsafe.dll</HintPath>
@@ -356,6 +365,9 @@
     <Reference Include="unityplastic">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@1.17.0/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
+      <HintPath>Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Cecil.Pdb">
       <HintPath>Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
     </Reference>
@@ -365,20 +377,23 @@
     <Reference Include="log4netPlastic">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@1.17.0/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Cecil.Rocks">
       <HintPath>Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
+      <HintPath>Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="DOTweenEditor">
-      <HintPath>Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween">
-      <HintPath>Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
-    </Reference>
     <Reference Include="DDebug">
-      <HintPath>Assets/Doozy/Engine/Debug/DDebug.dll</HintPath>
+      <HintPath>Assets/Plugins/Doozy/Engine/Debug/DDebug.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
+      <HintPath>Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
@@ -776,27 +791,27 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.2D.Common.Runtime.csproj">
-      <Project>{094FEC97-E629-7EF8-BFEC-53F7D1AE42B3}</Project>
+      <Project>{E1FDF517-42E0-784E-0C10-12243036057A}</Project>
       <Name>Unity.2D.Common.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
-      <Project>{5C5F6BC6-A416-A5B9-B30F-03201F0C79DA}</Project>
+      <Project>{1F476DF7-22E0-2C3E-41C7-1541ED6103EC}</Project>
       <Name>Unity.2D.Sprite.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{068892C7-80B6-5210-B9E5-2634E9EA0E05}</Project>
+      <Project>{820A4044-6BCF-10F7-8926-B104245DDDB6}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{41EC2B42-333A-A589-3CFE-6D447D525485}</Project>
+      <Project>{C7BFC451-98CB-FFD7-7769-B37E28E3A8F5}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{602F64E8-4015-1A42-5B6C-5ED2AD429AC9}</Project>
+      <Project>{A95B780F-A65D-3813-E6E1-DA5D1B0570F6}</Project>
       <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{F83B5348-F35A-B470-4F3E-E2AE10D49F3D}</Project>
+      <Project>{4AF3CE0A-BF55-493D-A413-9BAB67D941CF}</Project>
       <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>

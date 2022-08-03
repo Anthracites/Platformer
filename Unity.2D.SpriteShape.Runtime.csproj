@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{AEB46198-6288-8F5E-43EE-7FBBFD81D968}</ProjectGuid>
+    <ProjectGuid>{94D223C9-DBFE-5537-B1A9-038C2D3D5A6A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.2D.SpriteShape.Runtime</AssemblyName>
@@ -56,25 +56,25 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/External/LibTessDotNet/Tess.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/SpriteShapeGenerator.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/SplineUtility.cs" />
-    <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/External/LibTessDotNet/Dict.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/SpriteShapeDefaultCreator.cs" />
-    <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/BezierUtility.cs" />
-    <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/Spline.cs" />
-    <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/External/LibTessDotNet/PriorityHeap.cs" />
-    <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/SpriteShapeController.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/External/LibTessDotNet/PriorityQueue.cs" />
-    <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/SpriteShapeGeometryCreator.cs" />
-    <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/SpriteShape.cs" />
-    <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/External/LibTessDotNet/Sweep.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/External/LibTessDotNet/Mesh.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/AssemblyInfo.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/SpriteShapeGeometryCache.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/External/LibTessDotNet/Geom.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/SpriteShapeGeometryModifier.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/External/LibTessDotNet/MeshUtils.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/External/LibTessDotNet/Tess.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/External/LibTessDotNet/Dict.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/BezierUtility.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/Spline.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/External/LibTessDotNet/PriorityHeap.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/SpriteShapeController.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/SpriteShapeGeometryCreator.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/SpriteShape.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/External/LibTessDotNet/Sweep.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Library/PackageCache/com.unity.2d.spriteshape@8.0.0/Runtime/External/LibTessDotNet/LICENSE.txt" />
@@ -342,11 +342,20 @@
     <Reference Include="UnityEditor.LinuxStandalone.Extensions">
       <HintPath>/Applications/Unity/Hub/Editor/2022.1.9f1/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject-usage">
+      <HintPath>Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@1.17.0/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
+      <HintPath>Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@1.17.0/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenEditor">
+      <HintPath>Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
       <HintPath>Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.Unsafe.dll</HintPath>
@@ -357,6 +366,9 @@
     <Reference Include="unityplastic">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@1.17.0/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
+      <HintPath>Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Cecil.Pdb">
       <HintPath>Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
     </Reference>
@@ -366,20 +378,23 @@
     <Reference Include="log4netPlastic">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@1.17.0/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Cecil.Rocks">
       <HintPath>Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
+      <HintPath>Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="DOTweenEditor">
-      <HintPath>Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween">
-      <HintPath>Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
-    </Reference>
     <Reference Include="DDebug">
-      <HintPath>Assets/Doozy/Engine/Debug/DDebug.dll</HintPath>
+      <HintPath>Assets/Plugins/Doozy/Engine/Debug/DDebug.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
+      <HintPath>Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>/Applications/Unity/Hub/Editor/2022.1.9f1/PlaybackEngines/AppleTVSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -765,23 +780,23 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.2D.Common.Runtime.csproj">
-      <Project>{094FEC97-E629-7EF8-BFEC-53F7D1AE42B3}</Project>
+      <Project>{E1FDF517-42E0-784E-0C10-12243036057A}</Project>
       <Name>Unity.2D.Common.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Mathematics.csproj">
-      <Project>{43F70BC3-A202-813C-238E-F9F07C80CC9A}</Project>
+      <Project>{9C8ED3B5-804F-CE6C-0B07-AADF1CDB9196}</Project>
       <Name>Unity.Mathematics</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Burst.csproj">
-      <Project>{3FBF4BBE-A5DA-9706-3562-548C77DA4C72}</Project>
+      <Project>{15C1411F-F663-8F14-ED6F-9FBD41EB7C7A}</Project>
       <Name>Unity.Burst</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{068892C7-80B6-5210-B9E5-2634E9EA0E05}</Project>
+      <Project>{820A4044-6BCF-10F7-8926-B104245DDDB6}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{41EC2B42-333A-A589-3CFE-6D447D525485}</Project>
+      <Project>{C7BFC451-98CB-FFD7-7769-B37E28E3A8F5}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
   </ItemGroup>

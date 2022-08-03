@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{5EE8B822-29E6-EFD1-90F4-2CDB46225D04}</ProjectGuid>
+    <ProjectGuid>{F2FC8F14-7B1D-A26F-1B2B-1CA529DC0500}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.2D.IK.Runtime</AssemblyName>
@@ -56,18 +56,18 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/CCDSolver2D.cs" />
-    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/Solver2DMenuAttribute.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/IKManager2D.cs" />
-    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/Solver2D.cs" />
-    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/IKManager2DEditorData.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/LimbSolver2D.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/Solvers/FABRIK2D.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/IKUtility.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/CCDSolver2D.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/Solver2DMenuAttribute.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/Solver2D.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/IKManager2DEditorData.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/Solvers/CCD2D.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/IKChain2D.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/Solvers/Limb.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/AssemblyInfo.cs" />
-    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/IKUtility.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/FabrikSolver2D.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -266,6 +266,9 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/AOT/Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject-usage">
+      <HintPath>Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Unsafe">
       <HintPath>Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
@@ -278,14 +281,14 @@
     <Reference Include="Unity.Burst.Cecil">
       <HintPath>Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Burst.Cecil.Rocks">
-      <HintPath>Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
-    </Reference>
     <Reference Include="DOTween">
       <HintPath>Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Burst.Cecil.Rocks">
+      <HintPath>Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
+    </Reference>
     <Reference Include="DDebug">
-      <HintPath>Assets/Doozy/Engine/Debug/DDebug.dll</HintPath>
+      <HintPath>Assets/Plugins/Doozy/Engine/Debug/DDebug.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>/Applications/Unity/Hub/Editor/2022.1.9f1/Unity.app/Contents/NetStandard/ref/2.1.0/netstandard.dll</HintPath>
@@ -656,11 +659,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.InternalAPIEngineBridge.001.Player.csproj">
-      <Project>{940E9637-8EBF-267A-CBAA-B37C9E864D1F}</Project>
+      <Project>{6C37B3BF-9E35-5DCB-6832-3D5655E73A1F}</Project>
       <Name>Unity.InternalAPIEngineBridge.001.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.Player.csproj">
-      <Project>{8F63B36A-D120-150E-8A0F-91C9FD5B4FF1}</Project>
+      <Project>{83BAE7A1-07E3-969B-95CC-DB19FF399A91}</Project>
       <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
   </ItemGroup>

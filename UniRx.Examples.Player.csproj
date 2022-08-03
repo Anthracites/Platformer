@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4C9F5260-D805-B8C7-7041-8C7A8AFDDA7D}</ProjectGuid>
+    <ProjectGuid>{3BA56839-C5F9-93B3-BA17-E16F058783E0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>UniRx.Examples</AssemblyName>
@@ -54,22 +54,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
-    <Analyzer Include="/Users/natalagusarova/Documents/MyDocuments/MyProjects/Games/Platformer/Platphormer/Assets/Plugins/Doozy/Engine/Debug/DDebug.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Plugins/UniRx/Examples/Sample02_ObservableTriggers.cs" />
     <Compile Include="Assets/Plugins/UniRx/Examples/Sample12_ReactiveProperty.cs" />
-    <Compile Include="Assets/Plugins/UniRx/Examples/Sample03_GameObjectAsObservable.cs" />
-    <Compile Include="Assets/Plugins/UniRx/Examples/Sample01_ObservableWWW.cs" />
-    <Compile Include="Assets/Plugins/UniRx/Examples/Sample08_DetectDoubleClick.cs" />
-    <Compile Include="Assets/Plugins/UniRx/Examples/Sample10_MainThreadDispatcher.cs" />
-    <Compile Include="Assets/Plugins/UniRx/Examples/Sample05_ConvertFromCoroutine.cs" />
     <Compile Include="Assets/Plugins/UniRx/Examples/Sample06_ConvertToCoroutine.cs" />
+    <Compile Include="Assets/Plugins/UniRx/Examples/Sample03_GameObjectAsObservable.cs" />
+    <Compile Include="Assets/Plugins/UniRx/Examples/Sample10_MainThreadDispatcher.cs" />
+    <Compile Include="Assets/Plugins/UniRx/Examples/Sample11_Logger.cs" />
+    <Compile Include="Assets/Plugins/UniRx/Examples/Sample09_EventHandling.cs" />
+    <Compile Include="Assets/Plugins/UniRx/Examples/Sample08_DetectDoubleClick.cs" />
+    <Compile Include="Assets/Plugins/UniRx/Examples/Sample05_ConvertFromCoroutine.cs" />
+    <Compile Include="Assets/Plugins/UniRx/Examples/Sample13_ToDoApp.cs" />
+    <Compile Include="Assets/Plugins/UniRx/Examples/Sample01_ObservableWWW.cs" />
     <Compile Include="Assets/Plugins/UniRx/Examples/Sample04_ConvertFromUnityCallback.cs" />
     <Compile Include="Assets/Plugins/UniRx/Examples/Sample07_OrchestratIEnumerator.cs" />
-    <Compile Include="Assets/Plugins/UniRx/Examples/Sample09_EventHandling.cs" />
-    <Compile Include="Assets/Plugins/UniRx/Examples/Sample11_Logger.cs" />
-    <Compile Include="Assets/Plugins/UniRx/Examples/Sample13_ToDoApp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Plugins/UniRx/Examples/UniRx.Examples.asmdef" />
@@ -636,15 +635,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UniRx.Player.csproj">
-      <Project>{5A32C7AE-A059-F867-1508-EB791E7993D5}</Project>
+      <Project>{A69EE680-A974-0A86-C48F-361E4F5D578B}</Project>
       <Name>UniRx.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.Player.csproj">
-      <Project>{C1D1CB7B-D10C-ED1C-F238-90F561405233}</Project>
+      <Project>{F2E57CFD-9438-66BF-B74A-1872AAED1673}</Project>
       <Name>UnityEngine.TestRunner.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.Player.csproj">
-      <Project>{8F63B36A-D120-150E-8A0F-91C9FD5B4FF1}</Project>
+      <Project>{83BAE7A1-07E3-969B-95CC-DB19FF399A91}</Project>
       <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
   </ItemGroup>

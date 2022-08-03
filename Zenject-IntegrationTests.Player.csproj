@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{64C1B09D-C772-94BB-68AC-A3A30788C2FC}</ProjectGuid>
+    <ProjectGuid>{7D3FAA39-6AB1-3179-95A9-D04355936FC1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Zenject-IntegrationTests</AssemblyName>
@@ -54,86 +54,85 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
-    <Analyzer Include="/Users/natalagusarova/Documents/MyDocuments/MyProjects/Games/Platformer/Platphormer/Assets/Plugins/Doozy/Engine/Debug/DDebug.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneContractTests/Decorators/Scene2Installer.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromSubContainerPrefabResource/FooInstaller.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/TestBindFactoryOne/Foo.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefab/Bar.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefabResource/Bob.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestSceneContextEvents/SceneContextEventsTester.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/TestBindFactory/Foo.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneContractTests/AutoLoader/Scene3Installer.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromSubContainerPrefab/Bar.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromSubContainerPrefab/CircFoo.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromGameObjectInstaller/Foo.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefabInstaller/Bar.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromNewScriptableObjectResource/Foo.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromSubContainerPrefab/Gorp.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromComponentInHierarchyGameObjectContext/Foo.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestZenAutoInjecter/Gorp.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/TestBindFactory/Bar.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefabResource/Norf2.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/PrefabFactory/Foo.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneContractTests/AutoLoader/Scene2Installer.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/TestMonoInstallers/QuxInstaller.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/PrefabFactory/Foo2.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefab/Qux.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/TestScriptableObjectInstallers/QuxInstaller.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/TestScriptableObjectInstallers/FooInstaller.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromSubContainerPrefabResource/Bar.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefab/Foo.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/TestBindFactoryOne/Bar.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromSubContainerPrefab/FooInstaller.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestDestructionOrder/ProjectInstaller.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromComponentInHierarchyGameObjectContext/FooInstaller.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromSubContainerPrefab/Foo.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefab/Bob.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestZenAutoInjecter/Qux.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/TestBindFactoryFive/Foo.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestInstantiateCallback/Foo.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/TestInstallers/FooInstaller.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestDestructionOrder/FooMonoBehaviourUnderSceneContext3.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefabResource/Foo.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefabResource/Gorp.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestZenAutoInjecter/Bar.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/TestInstallers/BarInstaller.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/TestBindFactoryFive/FooInstaller.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestDestructionOrder/FooMonoBehaviourUnderSceneContext2.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefabResource/Jim.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromSubContainerPrefabResource/Gorp.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestAnimationStateBehaviourInject/StateBehaviour1.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefabResource/Qux.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestDestructionOrder/Scene1Installer.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromGameObjectInstaller/Bar.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromComponentInHierarchyGameObjectContext/Gorp.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefabResource/Norf.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromSubContainerPrefabResource/Foo.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestDestructionOrder/Scene2Installer.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestDiContainerMethods/Gorp.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/TestInstallers/QuxInstaller.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestDestructionOrder/FooDisposable3.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromNewScriptableObjectResource/Bob.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/TestMonoInstallers/FooInstaller.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefab/Jim.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/TestScriptableObjectInstallers/BarInstaller.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestDestructionOrder/FooDisposable1.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromSubContainerPrefab/CircBar.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestDiContainerMethods/Gorp2.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefabInstaller/Foo.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefab/Gorp.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneContractTests/AutoLoader/Scene1Installer.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefab/Norf2.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefabResource/Bar.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/TestMonoInstallers/BarInstaller.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefab/Norf.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestDiContainerMethods/Foo2.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/TestBindFactoryOne/FooInstaller.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestDestructionOrder/FooDisposable2.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestDestructionOrder/FooMonoBehaviourUnderSceneContext1.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneContractTests/Decorators/Scene1Installer.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneContractTests/Decorators/Scene2Installer.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromSubContainerPrefab/Bar.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromSubContainerPrefab/Gorp.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestZenAutoInjecter/Gorp.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefabResource/Norf2.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefab/Qux.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefab/Foo.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/TestBindFactoryOne/Bar.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestDestructionOrder/ProjectInstaller.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromComponentInHierarchyGameObjectContext/FooInstaller.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromSubContainerPrefab/Foo.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestDestructionOrder/Scene1Installer.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromGameObjectInstaller/Bar.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestDestructionOrder/Scene2Installer.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefab/Jim.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromSubContainerPrefab/CircBar.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefab/Gorp.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefabResource/Bar.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/TestMonoInstallers/BarInstaller.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestDiContainerMethods/Foo.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefab/Bar.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefabResource/Bob.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneContractTests/AutoLoader/Scene3Installer.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromSubContainerPrefab/CircFoo.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromGameObjectInstaller/Foo.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromComponentInHierarchyGameObjectContext/Foo.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/TestMonoInstallers/QuxInstaller.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/TestScriptableObjectInstallers/QuxInstaller.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefab/Bob.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestZenAutoInjecter/Qux.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestDestructionOrder/FooMonoBehaviourUnderSceneContext3.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/TestInstallers/BarInstaller.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneContractTests/AutoLoader/Scene1Installer.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefab/Norf2.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefab/Norf.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestDiContainerMethods/Foo2.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneContractTests/Decorators/Scene1Installer.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/TestBindFactoryOne/Foo.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromNewScriptableObjectResource/Foo.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/TestBindFactory/Bar.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/PrefabFactory/Foo.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/PrefabFactory/Foo2.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefabResource/Foo.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestZenAutoInjecter/Bar.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/TestBindFactoryFive/FooInstaller.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestDestructionOrder/FooMonoBehaviourUnderSceneContext2.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefabResource/Jim.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestAnimationStateBehaviourInject/StateBehaviour1.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromPrefabResource/Norf.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromSubContainerPrefabResource/Foo.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/TestMonoInstallers/FooInstaller.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/TestScriptableObjectInstallers/BarInstaller.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Zenject-IntegrationTests.asmdef" />
@@ -704,15 +703,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Zenject.Player.csproj">
-      <Project>{2C870A2E-5219-A868-3D45-0E1A99D644E1}</Project>
+      <Project>{A7C0E5FB-8F53-B874-163B-84851716BA80}</Project>
       <Name>Zenject.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.Player.csproj">
-      <Project>{C1D1CB7B-D10C-ED1C-F238-90F561405233}</Project>
+      <Project>{F2E57CFD-9438-66BF-B74A-1872AAED1673}</Project>
       <Name>UnityEngine.TestRunner.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.Player.csproj">
-      <Project>{8F63B36A-D120-150E-8A0F-91C9FD5B4FF1}</Project>
+      <Project>{83BAE7A1-07E3-969B-95CC-DB19FF399A91}</Project>
       <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
   </ItemGroup>

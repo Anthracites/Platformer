@@ -17,6 +17,8 @@ MonoBehaviour:
   - Custom
   - Example
   - General
+  - Platformer
   Categories:
   - {fileID: 11400000, guid: b01e98f4801f7124ba39e1dac4debf90, type: 2}
   - {fileID: 11400000, guid: 2e12563ae8c214318a78992a03f35a28, type: 2}
+  - {fileID: 11400000, guid: 457c0b1a248dd40f6a0a7d27c82eae55, type: 2}

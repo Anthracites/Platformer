@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{BA0953EF-D80B-0CC4-0486-EA125635C372}</ProjectGuid>
+    <ProjectGuid>{444B2E67-580B-DD1E-B14B-8DBB115A03E8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.2D.IK.Runtime</AssemblyName>
@@ -56,18 +56,18 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/CCDSolver2D.cs" />
-    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/Solver2DMenuAttribute.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/IKManager2D.cs" />
-    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/Solver2D.cs" />
-    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/IKManager2DEditorData.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/LimbSolver2D.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/Solvers/FABRIK2D.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/IKUtility.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/CCDSolver2D.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/Solver2DMenuAttribute.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/Solver2D.cs" />
+    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/IKManager2DEditorData.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/Solvers/CCD2D.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/IKChain2D.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/Solvers/Limb.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/AssemblyInfo.cs" />
-    <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/IKUtility.cs" />
     <Compile Include="Library/PackageCache/com.unity.2d.animation@8.0.2/IK/Runtime/FabrikSolver2D.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -335,11 +335,20 @@
     <Reference Include="UnityEditor.LinuxStandalone.Extensions">
       <HintPath>/Applications/Unity/Hub/Editor/2022.1.9f1/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject-usage">
+      <HintPath>Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@1.17.0/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
+      <HintPath>Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@1.17.0/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenEditor">
+      <HintPath>Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
       <HintPath>Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.Unsafe.dll</HintPath>
@@ -350,6 +359,9 @@
     <Reference Include="unityplastic">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@1.17.0/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
+      <HintPath>Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Cecil.Pdb">
       <HintPath>Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
     </Reference>
@@ -359,20 +371,23 @@
     <Reference Include="log4netPlastic">
       <HintPath>Library/PackageCache/com.unity.collab-proxy@1.17.0/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Cecil.Rocks">
       <HintPath>Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
+      <HintPath>Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="DOTweenEditor">
-      <HintPath>Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween">
-      <HintPath>Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
-    </Reference>
     <Reference Include="DDebug">
-      <HintPath>Assets/Doozy/Engine/Debug/DDebug.dll</HintPath>
+      <HintPath>Assets/Plugins/Doozy/Engine/Debug/DDebug.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
+      <HintPath>Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>/Applications/Unity/Hub/Editor/2022.1.9f1/PlaybackEngines/AppleTVSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -758,15 +773,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.InternalAPIEngineBridge.001.csproj">
-      <Project>{45273BF2-5902-1426-E2E5-6A4D7836245C}</Project>
+      <Project>{96BCB769-14BF-FD16-A00B-7866DEA9E44B}</Project>
       <Name>Unity.InternalAPIEngineBridge.001</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{068892C7-80B6-5210-B9E5-2634E9EA0E05}</Project>
+      <Project>{820A4044-6BCF-10F7-8926-B104245DDDB6}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{41EC2B42-333A-A589-3CFE-6D447D525485}</Project>
+      <Project>{C7BFC451-98CB-FFD7-7769-B37E28E3A8F5}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
   </ItemGroup>

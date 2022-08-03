@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7A30BA64-32E7-0D0E-3A41-DBE76D6EAD6D}</ProjectGuid>
+    <ProjectGuid>{0787B1FC-244D-834A-E494-75594F25A67E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Zenject-TestFramework</AssemblyName>
@@ -54,13 +54,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
-    <Analyzer Include="/Users/natalagusarova/Documents/MyDocuments/MyProjects/Games/Platformer/Platphormer/Assets/Plugins/Doozy/Engine/Debug/DDebug.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/TestFramework/SceneTestFixtureSceneReference.cs" />
-    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/TestFramework/SceneTestFixture.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/TestFramework/ZenjectUnitTestFixture.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/TestFramework/ZenjectIntegrationTestFixture.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/TestFramework/SceneTestFixtureSceneReference.cs" />
+    <Compile Include="Assets/Plugins/Zenject/OptionalExtras/TestFramework/SceneTestFixture.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/TestFramework/ZenjectTestUtil.cs" />
     <Compile Include="Assets/Plugins/Zenject/OptionalExtras/TestFramework/ValidateOnlyAttribute.cs" />
   </ItemGroup>
@@ -737,23 +736,23 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Zenject.csproj">
-      <Project>{50671FF0-52B4-D07F-CA0C-C3C4A7F21338}</Project>
+      <Project>{73B6845B-8812-CF62-956A-0AA7534E0D82}</Project>
       <Name>Zenject</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{602F64E8-4015-1A42-5B6C-5ED2AD429AC9}</Project>
+      <Project>{A95B780F-A65D-3813-E6E1-DA5D1B0570F6}</Project>
       <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{F83B5348-F35A-B470-4F3E-E2AE10D49F3D}</Project>
+      <Project>{4AF3CE0A-BF55-493D-A413-9BAB67D941CF}</Project>
       <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{068892C7-80B6-5210-B9E5-2634E9EA0E05}</Project>
+      <Project>{820A4044-6BCF-10F7-8926-B104245DDDB6}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{41EC2B42-333A-A589-3CFE-6D447D525485}</Project>
+      <Project>{C7BFC451-98CB-FFD7-7769-B37E28E3A8F5}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
   </ItemGroup>
