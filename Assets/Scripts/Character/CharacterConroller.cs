@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Doozy.Engine;
 
 namespace Platformer.GamePlay
 { 
@@ -32,8 +33,6 @@ public class CharacterConroller : MonoBehaviour
         private Vector3 jmp;
         [SerializeField]
         private bool IsStaeyd = false;
-        [SerializeField]
-        private GameObject CanvasControlObj;
         [SerializeField]
         private Button JumpButton;
         [SerializeField]
@@ -115,7 +114,7 @@ public class CharacterConroller : MonoBehaviour
             HP--;
             t = 2f;
             IsNeuyas = true;
-            CanvasControlObj.GetComponent<CanvasControl>().StartLoseHP();
+            GameEventMessage.SendEvent(EventsLibrary.ChacterGotDamage);
             Anim.enabled = true;
             Anim.Play("PersDamaged");
             yield return new WaitForSeconds(t);
