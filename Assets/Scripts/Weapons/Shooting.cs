@@ -2,60 +2,70 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
+using Platformer.UIConnection;
 
-public class Shooting : MonoBehaviour
+namespace Platformer.GamePlay
 {
-    [SerializeField]
-    private GameObject BullPref;
-    private GameObject inst_obj;
-    public Button FireButtonL;
-    public Button FireButtonR;
-    private Vector3 SpawnPos;
-    private bool IsShoot = true;
-
-    void Start()
+    public class Shooting : MonoBehaviour
     {
-        FireButtonR.onClick.AddListener(StartShootR);
-        FireButtonL.onClick.AddListener(StartShootL);
-    }
+        [Inject]
+        UI_Manager _uiManager;
 
-    public void StartShootR()
-    {
-        if (IsShoot == true)
+        [SerializeField]
+        private GameObject BullPref;
+        private GameObject inst_obj;
+        public Button FireButtonL;
+        public Button FireButtonR;
+        private Vector3 SpawnPos;
+        private bool IsShoot = true;
+
+        public void SetFireButton()
         {
-            StartCoroutine(ShootR());
-            Debug.Log("SootR");
+            FireButtonL = _uiManager.FireButtonL;
+            FireButtonR = _uiManager.FireButtonR;
+            FireButtonR.onClick.AddListener(StartShootR);
+            FireButtonL.onClick.AddListener(StartShootL);
         }
-    }
 
-    public void StartShootL()
-    {
-        if (IsShoot == true)
+        public void StartShootR()
         {
-            StartCoroutine(ShootL());
-            Debug.Log("SootL");
+            if (IsShoot == true)
+            {
+                StartCoroutine(ShootR());
+                Debug.Log("SootR");
+            }
         }
-    }
+
+        public void StartShootL()
+        {
+            if (IsShoot == true)
+            {
+                StartCoroutine(ShootL());
+                Debug.Log("SootL");
+            }
+        }
 
 
-    private IEnumerator ShootR()
-    {
-        SpawnPos = gameObject.transform.position;
-        inst_obj = Instantiate(BullPref, SpawnPos, Quaternion.identity) as GameObject;
-        inst_obj.GetComponent<Bullet>().k = 1;
-        IsShoot = false;
-        yield return new WaitForSeconds(0.5f);
-        IsShoot = true;
-    }
+        private IEnumerator ShootR()
+        {
+            SpawnPos = gameObject.transform.position;
+            inst_obj = Instantiate(BullPref, SpawnPos, Quaternion.identity);
+            inst_obj.GetComponent<Bullet>().k = 1;
+            IsShoot = false;
+            yield return new WaitForSeconds(0.5f);
+            IsShoot = true;
+        }
 
-    private IEnumerator ShootL()
-    {
-        Quaternion SpawnRot = Quaternion.Euler(0, 0, 180);
-        SpawnPos = gameObject.transform.position;
-        inst_obj = Instantiate(BullPref, SpawnPos, SpawnRot) as GameObject;
-        //inst_obj.GetComponent<Bullet>().k = -1f;
-        IsShoot = false;
-        yield return new WaitForSeconds(0.5f);
-        IsShoot = true;
+        private IEnumerator ShootL()
+        {
+            Quaternion SpawnRot = Quaternion.Euler(0, 0, 180);
+            SpawnPos = gameObject.transform.position;
+            inst_obj = Instantiate(BullPref, SpawnPos, SpawnRot);
+            inst_obj.GetComponent<Bullet>().k = -1f;
+            IsShoot = false;
+            yield return new WaitForSeconds(0.5f);
+            IsShoot = true;
+        }
     }
 }

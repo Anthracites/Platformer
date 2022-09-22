@@ -1,18 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
+using Platformer.UIConnection;
 
-public class CameraMove : MonoBehaviour // Движение камеры за персонажем
+namespace Platformer.GamePlay
 {
-    public GameObject PersObj;
-
-    void Update()
+    public class CameraMove : MonoBehaviour // Движение камеры за персонажем
     {
-        MoveWhithPerson();
-    }
+        [Inject]
+        UI_Manager _uiManager;
 
-    void MoveWhithPerson()
-    {
-        gameObject.transform.position = new Vector3(PersObj.transform.position.x, PersObj.transform.position.y, gameObject.transform.position.z);
+        [SerializeField]
+        private GameObject _character;
+
+        public void TraceCharacter()
+        {
+            GetCharacter();
+        }
+
+
+        private IEnumerator MoveWhithCharacter()
+        {
+            while (true)
+            {
+                gameObject.transform.position = new Vector3(_character.transform.position.x, _character.transform.position.y, gameObject.transform.position.z);
+                yield return new WaitForEndOfFrame();
+            }
+        }
+
+        public void GetCharacter()
+        {
+            _character = _uiManager.Character;
+            StartCoroutine(MoveWhithCharacter());
+        }
+
+        public void StopTraicing()// Подписать на событие наступление паузы и окончания игры
+        {
+            StopCoroutine(MoveWhithCharacter());
+        }
     }
 }

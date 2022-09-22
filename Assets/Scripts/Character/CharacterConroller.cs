@@ -3,19 +3,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Doozy.Engine;
+using Zenject;
+using Platformer.UIConnection;
 
 namespace Platformer.GamePlay
 { 
 public class CharacterConroller : MonoBehaviour
 {
+        [Inject]
+        UI_Manager _uiManager;
+
         [SerializeField]
-        private int HP = 3; // ХП перса
+        private int HP, jumpCount; // ХП перса
         [SerializeField]
-        private float Speed = 1; // скорость перса   
-        [SerializeField]
-        private float Size; // размер 
-        [SerializeField]
-        private float jumpforce = 10f; // сила прыжка
+        private float Speed = 1, Size, jumpforce = 10f; // скорость перса   
+
         [SerializeField]
         private bool IsFly = false; // полет
         [SerializeField]
@@ -23,8 +25,6 @@ public class CharacterConroller : MonoBehaviour
 
         [SerializeField]
         private GameObject GamePad;
-        [SerializeField]
-        private int jumpCount;
         [SerializeField]
         private MobileGamePad MobileContr;
         [SerializeField]
@@ -41,19 +41,34 @@ public class CharacterConroller : MonoBehaviour
         private Animator Anim;
         [SerializeField]
         private float JumpHight;
+        [SerializeField]
+        private Vector3 _startPoint;
 
 
     void Start()
     {
-        jumpCount = 0;
+            _uiManager.CharacterHP = HP;
+            SetUIElements();
+            jumpCount = 0;
         rb = GetComponent<Rigidbody2D>();
         jmp = transform.up * jumpforce;
 
-        MobileContr = GamePad.GetComponent<MobileGamePad>();
         float dist = Vector3.Distance(transform.position, Camera.main.transform.position);
         JumpButton.onClick.AddListener(Jump);
         Anim = GetComponent<Animator>();
+            GetJumpHight();
+            _startPoint = gameObject.transform.position;
     }
+
+       void SetUIElements()
+        {
+            StopAllCoroutines();
+            GamePad = _uiManager.GamePad;
+           JumpButton = _uiManager.JumpButton;
+           MobileContr = GamePad.GetComponent<MobileGamePad>();
+            StartCoroutine(MoveAWSD());
+        }
+
 
     void GetJumpHight()
     {
@@ -64,23 +79,17 @@ public class CharacterConroller : MonoBehaviour
             JumpHight = r;
         }
     }
-
-    void Update()
-    {
-        GetJumpHight();
+        private IEnumerator MoveAWSD()
         {
-            PersMoveAWSD();
+            while (true)
+            {
+                Vector2 MoveVector = Vector2.zero;
+                MoveVector.x = MobileContr.Horizontal() * Speed;
+                transform.Translate(MoveVector * Time.deltaTime);
+                yield return new WaitForEndOfFrame();
+            }
         }
 
-    }
-
-    void PersMoveAWSD()
-    {
-            Vector2 MoveVector = Vector2.zero;
-            MoveVector.x = MobileContr.Horizontal() * Speed;
-            transform.Translate(MoveVector * Time.deltaTime);
-
-    }
 
     public void Jump()
     {
@@ -96,11 +105,19 @@ public class CharacterConroller : MonoBehaviour
         }
 
     }
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.tag == "Border")
+            {
+                GetDamage();
+            }
+            Debug.Log("Collision with " + other.name);
+        }
 
-    void OnCollisionStay2D(Collision2D collision)
+        void OnCollisionStay2D(Collision2D collision)
     {
         IsStaeyd = true;
-    }
+        }
 
     public void GetDamage()
     {
@@ -109,9 +126,10 @@ public class CharacterConroller : MonoBehaviour
 
     private IEnumerator Damage()
     {
-        if ((IsNeuyas == false) & (HP > 0))
+        if ((IsNeuyas == false) & (HP > 1))
         {
-            HP--;
+                Debug.Log("Pers damaged");
+                HP--;
             t = 2f;
             IsNeuyas = true;
             GameEventMessage.SendEvent(EventsLibrary.ChacterGotDamage);
@@ -121,14 +139,28 @@ public class CharacterConroller : MonoBehaviour
             IsNeuyas = false;
             Anim.enabled = false;
         }
-        else if (HP == 0)
-        {
-            yield return new WaitForSeconds(t);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        else if ((IsNeuyas == false) & (HP == 1))
+            {
+                Debug.Log("Game over!!!!");
+                StopCoroutine(MoveAWSD());
+                Anim.enabled = true;
+                Anim.Play("PersDamaged");
+                yield return new WaitForSeconds(t);
+                GameEventMessage.SendEvent(EventsLibrary.GameEnded);
+                DestroySelf();
+
         }
     }
 
+        public void DestroySelf()
+        {
+            Destroy(gameObject);
+        }
 
-}
+        public class Factory : PlaceholderFactory<string, CharacterConroller>
+        {
 
+        }
+
+    }
 }

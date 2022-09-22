@@ -16,7 +16,7 @@ MonoBehaviour:
   AutoDisableUIInteractions: 0
   DebugBackButton: 0
   DebugGameEventListener: 0
-  DebugGameEventManager: 0
+  DebugGameEventManager: 1
   DebugGestureListener: 0
   DebugGraphController: 1
   DebugKeyToAction: 0

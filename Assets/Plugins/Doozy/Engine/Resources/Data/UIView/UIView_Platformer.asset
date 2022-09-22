@@ -18,3 +18,4 @@ MonoBehaviour:
   - UIView_Play
   - UIView_Menu
   - UIView_CreatePlay
+  - UIView_EndGame

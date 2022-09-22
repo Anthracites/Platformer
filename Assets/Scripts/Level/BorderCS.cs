@@ -1,64 +1,76 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
+using Platformer.UIConnection;
 
-public class BorderCS: MonoBehaviour
+namespace Platformer.GamePlay
 {
-    public PolygonCollider2D Coll;
-    public int i = 0;
-    public int j = 0;
-    public GameObject Pers;
-    private Animation anim;
-    private Animator animContr;
-    private bool IsDamaged = false;
-
-    void Start()
+    public class BorderCS : MonoBehaviour
     {
-        anim = gameObject.GetComponent<Animation>();
-        animContr = gameObject.GetComponent<Animator>();
+        [Inject]
+        UI_Manager _uiManager;
 
-    }
+        [SerializeField]
+        private PolygonCollider2D Coll;
+        [SerializeField]
+        private int i = 0;
+        [SerializeField]
+        private int j = 0;
+        [SerializeField]
+        private GameObject _character;
+        [SerializeField]
+        private Animation anim;
+        [SerializeField]
+        private Animator animContr;
+        [SerializeField]
+        private bool IsDamaged = false;
 
-    public void CreateCollider()
-    {
-        Coll =  gameObject.AddComponent<PolygonCollider2D>();
-        i++;
-    }
-
-    public void ChangeColliderShape()
-    {
-        RemoveCollider();
-        CreateCollider();
-    }
-
-    public void RemoveCollider()
-    {
-        Destroy(Coll);
-        j++;
-    }
-
-    public void StartDestroy()
-    {
-        StartCoroutine(DestroyBorder());
-    }
-
-    private IEnumerator DestroyBorder()
-    {
-        animContr.Play("IcePillarAnimDestroy");
-        float length = gameObject.GetComponent<Animation>().clip.length;
-        yield return new WaitForSeconds(length);
-        Destroy(gameObject);
-    }
-
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Pers")
+        void Start()
         {
-            Pers.GetComponent<PersStats>().GetDamage();
+            _character = _uiManager.Character.gameObject;
+            anim = gameObject.GetComponent<Animation>();
+            animContr = gameObject.GetComponent<Animator>();
+
         }
+
+        public void CreateCollider()
+        {
+            Coll = gameObject.AddComponent<PolygonCollider2D>();
+            i++;
+        }
+
+        public void ChangeColliderShape()
+        {
+            RemoveCollider();
+            CreateCollider();
+        }
+
+        public void RemoveCollider()
+        {
+            Destroy(Coll);
+            j++;
+        }
+
+        public void StartDestroy()
+        {
+            StartCoroutine(DestroyBorder());
+        }
+
+        private IEnumerator DestroyBorder()
+        {
+            animContr.Play("IcePillarAnimDestroy");
+            float length = gameObject.GetComponent<Animation>().clip.length;
+            yield return new WaitForSeconds(length);
+            Destroy(gameObject);
+        }
+        
+        public class Factory : PlaceholderFactory<string, BorderCS>
+        {
+
+        }
+
     }
-
-
 }
 /*
  public void NoEnabledCollyder()
