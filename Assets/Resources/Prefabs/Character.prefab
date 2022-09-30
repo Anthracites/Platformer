@@ -185,14 +185,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d22f8e3094ffa4a5e80af0947012a95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 3
+  HP: 5
+  jumpCount: 0
   Speed: 5
   Size: 0
-  jumpforce: 10
+  jumpforce: 5
   IsFly: 0
   IsNeuyas: 0
   GamePad: {fileID: 0}
-  jumpCount: 0
   MobileContr: {fileID: 0}
   rb: {fileID: 0}
   jmp: {x: 0, y: 0, z: 0}
@@ -201,6 +201,7 @@ MonoBehaviour:
   t: 0
   Anim: {fileID: 0}
   JumpHight: 0
+  _startPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &5788371369916106364
 MonoBehaviour:
   m_ObjectHideFlags: 0

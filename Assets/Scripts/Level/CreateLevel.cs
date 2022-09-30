@@ -23,7 +23,7 @@ namespace Platformer.GamePlay
         GamePlay_Manager _gamePlayManager;
 
         [SerializeField]
-        private int _seed;
+        private int _seed, _seed1, _seed2, _seed3;
         [SerializeField]
         private GameObject[] _platformPrefabs;
         [SerializeField]
@@ -75,6 +75,7 @@ namespace Platformer.GamePlay
         private int _buildCount;
 
 
+
         private void Start()
         {
             _buildCount = 0;
@@ -86,16 +87,14 @@ namespace Platformer.GamePlay
             GetSettins();
             GetSizesPlatform();
             SpawnStartPlatform();
-//
+            //
             PlatformSpawn();
             SpawnEndPlatform();
             SpawnCamTriggers();
             SpawnPillars();
             PersCreate();
-            if (_useSeed == false)
-            {
-                _seed = Random.seed;
-            }
+
+            SerilizeToFile();
         }
         void GetSettins()
         {
@@ -140,8 +139,13 @@ namespace Platformer.GamePlay
             if (_useSeed == true)
             {
                 _seed = _gamePlayManager.Seed;
-                Random.InitState(_seed);
             }
+            else
+            {
+                Random.state = Random.state;
+                 //_seed = null;
+            }
+            Random.InitState(_seed);
         }
 
         void GetSizesPlatform()
@@ -155,11 +159,14 @@ namespace Platformer.GamePlay
             }
         }
 
+
         void PlatformSpawn() // Спавн платформ
 
         {
             int j = 0;
             int i = 0;
+            _seed1 = Random.seed;
+            Debug.Log("seed1 = " + _seed.ToString());
             while (i < LevelNumber * 100)
             {
                 Quaternion spawnRotation = Quaternion.identity;
@@ -173,6 +180,11 @@ namespace Platformer.GamePlay
                 PlatformSizeY.Add(inst_obj.GetComponent<SpriteRenderer>().bounds.size.y);
                 SpawnBorderPos.Add(SpawnPosition);
                 i++;
+                if (i==0)
+                {
+                    _seed = Random.seed;
+                    Random.InitState(_seed);
+                }
             }
             _lastPlatformIndex = j;
         }
@@ -186,12 +198,18 @@ namespace Platformer.GamePlay
             StartArcPoint = SpawnPositionArc.x;
             _uiManager.StartPoint = StartArcPoint;
             _characterSpawnY = CoordY + 5f;
+
+            var a = StartPlatformPref.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().bounds.size.x;
+            var b = StartPlatformPref.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().bounds.size.x;
+            CoordX += (a + b)/2;
         }
 
 
         void SpawnEndPlatform() // Спавн последней платформы
         {
-            CoordX = CoordX + PlatformSizes[_lastPlatformIndex] * 2;
+            var a = EndPlatformPref.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().bounds.size.x;
+            var b = EndPlatformPref.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().bounds.size.x;
+            CoordX += PlatformSizes[_lastPlatformIndex] + (a + b)/2;
             SpawnPositionArc = new Vector3(CoordX, CoordY, -1);
             Quaternion spawnRotation = Quaternion.identity;
             GameObject inst_obj = Instantiate(EndPlatformPref, SpawnPositionArc, spawnRotation);
@@ -207,7 +225,6 @@ namespace Platformer.GamePlay
             _character.transform.position = _spawnPositionArc;
             _uiManager.Character = _character.gameObject;
             GameEventMessage.SendEvent(EventsLibrary.CharacterCreated);
-            Debug.Log("Character created");
         }
 
         void SpawnCamTriggers()
@@ -237,7 +254,6 @@ namespace Platformer.GamePlay
 
         void SpawnPillars()
         {
-            //Random.seed = _seed;
             int i = 0;
             while (i < LevelNumber * 25)
             {
@@ -251,13 +267,18 @@ namespace Platformer.GamePlay
                 PlatformSizeY.RemoveAt(j);
                 SpawnBorderPos.RemoveAt(j);
                 i++;
+                if (i == 0)
+                {
+                    _seed2 = Random.seed;
+
+                }
             }
             GameEventMessage.SendEvent(EventsLibrary.LevelCreated);
         }
 
         private void SerilizeToFile()
         {
-            string _a = _seed.ToString() + '\n' + "Borders" + ":" + '\n';
+            string _a = _useSeed.ToString() + '\n' + _seed.ToString() + '\n' + "Borders" + ":" + '\n';
 
             foreach (Vector3 _coord in SpawnBorderPos)
             {
@@ -269,22 +290,11 @@ namespace Platformer.GamePlay
             {
                 _a += _coord.ToString();
             }
-            //string fileName = "CoordinateArraes.json";
-            //var _platformsPos = JsonConvert.SerializeObject(SpawnBorderPos);
-            //var _borderPos = JsonConvert.SerializeObject(LevelPillars);
-            //var s = _seed.ToString();
+            _a += _useSeed.ToString();
             string jsonString = _a;
             var path = Path.Combine(Application.dataPath + "/Jsons", "MyJson" + _buildCount.ToString() + ".json");
             File.WriteAllText(path, jsonString);
             _buildCount++;
         }
     }
-
-
-    /*void SerilzeCoordinates()
-    {
-        string fileName = "WeatherForecast.json";
-        string jsonString = JsonSerializer.Serialize(weatherForecast);
-        File.WriteAllText(fileName, jsonString);
-    }*/
 }

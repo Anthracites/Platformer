@@ -95,9 +95,9 @@ namespace Platformer.UserInterface
 
         private IEnumerator LoseHP()
         {
-            _chacterHPPictures[HPCount].GetComponent<Animator>().enabled = true;
+            _chacterHPPictures[HPCount].transform.GetChild(0).gameObject.GetComponent<Animator>().enabled = true;
             yield return new WaitForSeconds(1);
-            Destroy(_chacterHPPictures[HPCount]);
+            Destroy(_chacterHPPictures[HPCount].transform.GetChild(0).gameObject);
             HPCount++;
         }
 

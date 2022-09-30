@@ -16,7 +16,7 @@ public class CharacterConroller : MonoBehaviour
         [SerializeField]
         private int HP, jumpCount; // ХП перса
         [SerializeField]
-        private float Speed = 1, Size, jumpforce = 10f; // скорость перса   
+        private float Speed = 1, Size, jumpforce; // скорость передвижения, размер, сила прыжка   
 
         [SerializeField]
         private bool IsFly = false; // полет
@@ -56,7 +56,6 @@ public class CharacterConroller : MonoBehaviour
         float dist = Vector3.Distance(transform.position, Camera.main.transform.position);
         JumpButton.onClick.AddListener(Jump);
         Anim = GetComponent<Animator>();
-            GetJumpHight();
             _startPoint = gameObject.transform.position;
     }
 
@@ -93,18 +92,18 @@ public class CharacterConroller : MonoBehaviour
 
     public void Jump()
     {
-        if ((IsStaeyd == true) & (jumpCount < 1))
+        if ((IsStaeyd == true) | (jumpCount <= 1))
         {
             rb.AddForce(jmp, ForceMode2D.Impulse);
             jumpCount++;
             IsStaeyd = false;
-        }
+            }
         else
         {
-            jumpCount = 0;
+            IsStaeyd = false;
         }
-
-    }
+            GetJumpHight();
+        }
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.tag == "Border")
@@ -117,6 +116,7 @@ public class CharacterConroller : MonoBehaviour
         void OnCollisionStay2D(Collision2D collision)
     {
         IsStaeyd = true;
+            jumpCount = 0;
         }
 
     public void GetDamage()
