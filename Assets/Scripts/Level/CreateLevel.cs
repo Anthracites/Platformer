@@ -8,6 +8,7 @@ using Doozy.Engine;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.IO;
+using System;
 
 namespace Platformer.GamePlay
 {
@@ -23,7 +24,9 @@ namespace Platformer.GamePlay
         GamePlay_Manager _gamePlayManager;
 
         [SerializeField]
-        private int _seed, _seed1, _seed2, _seed3;
+        private int _seed;
+        [SerializeField]
+        private long y;
         [SerializeField]
         private GameObject[] _platformPrefabs;
         [SerializeField]
@@ -94,6 +97,7 @@ namespace Platformer.GamePlay
             SpawnPillars();
             PersCreate();
 
+
             SerilizeToFile();
         }
         void GetSettins()
@@ -142,10 +146,30 @@ namespace Platformer.GamePlay
             }
             else
             {
-                Random.state = Random.state;
-                 //_seed = null;
+                bool _b;
+                int i = UnityEngine.Random.Range(-10, 10);
+                if (i >= 0)
+                {
+                    _b = true;
+                }
+                else
+                {
+                    _b = false;
+                }
+
+                int s = (int)DateTime.Now.Ticks;
+                if (_b== true)
+                {
+                    _seed = -s;
+                }
+                else
+                {
+                    _seed = s;
+                }
+                y = DateTime.Now.Ticks;
+                _gamePlayManager.Seed = _seed;
             }
-            Random.InitState(_seed);
+            UnityEngine.Random.InitState(_seed);
         }
 
         void GetSizesPlatform()
@@ -165,13 +189,12 @@ namespace Platformer.GamePlay
         {
             int j = 0;
             int i = 0;
-            _seed1 = Random.seed;
             Debug.Log("seed1 = " + _seed.ToString());
             while (i < LevelNumber * 100)
             {
                 Quaternion spawnRotation = Quaternion.identity;
-                j = Random.Range(0, _platformPrefabs.Length);
-                CoordY = Random.Range(-4, 2);
+                j = UnityEngine.Random.Range(0, _platformPrefabs.Length);
+                CoordY = UnityEngine.Random.Range(-4, 2);
                 CoordX += (PlatformSizes[j] * 0.5f) + (PlatformBSizeX * 0.5f);
                 Vector3 SpawnPosition = new Vector3(CoordX, CoordY, CoordZ);
                 GameObject inst_obj = Instantiate(_platformPrefabs[j], SpawnPosition, spawnRotation);
@@ -180,11 +203,6 @@ namespace Platformer.GamePlay
                 PlatformSizeY.Add(inst_obj.GetComponent<SpriteRenderer>().bounds.size.y);
                 SpawnBorderPos.Add(SpawnPosition);
                 i++;
-                if (i==0)
-                {
-                    _seed = Random.seed;
-                    Random.InitState(_seed);
-                }
             }
             _lastPlatformIndex = j;
         }
@@ -257,7 +275,7 @@ namespace Platformer.GamePlay
             int i = 0;
             while (i < LevelNumber * 25)
             {
-                int j = Random.Range(0, SpawnBorderPos.Count - 1);
+                int j = UnityEngine.Random.Range(0, SpawnBorderPos.Count - 1);
                 var inst_obj = _borderFactory.Create(PrefabsPathLibrary.IcePillar);
                 float SizeY = inst_obj.gameObject.GetComponent<SpriteRenderer>().bounds.size.y;
                 Vector3 SpawnPosition = new Vector3(SpawnBorderPos[j].x, (SpawnBorderPos[j].y + (PlatformSizeY[j] * 0.5f) + (SizeY * 0.5f) - 0.25f), SpawnBorderPos[j].z);
@@ -267,11 +285,6 @@ namespace Platformer.GamePlay
                 PlatformSizeY.RemoveAt(j);
                 SpawnBorderPos.RemoveAt(j);
                 i++;
-                if (i == 0)
-                {
-                    _seed2 = Random.seed;
-
-                }
             }
             GameEventMessage.SendEvent(EventsLibrary.LevelCreated);
         }

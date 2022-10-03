@@ -113,11 +113,21 @@ public class CharacterConroller : MonoBehaviour
             Debug.Log("Collision with " + other.name);
         }
 
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            if (collision.gameObject.tag == "Border")
+            {
+                GetDamage();
+            }
+        }
+
+
         void OnCollisionStay2D(Collision2D collision)
     {
         IsStaeyd = true;
             jumpCount = 0;
         }
+
 
     public void GetDamage()
     {
