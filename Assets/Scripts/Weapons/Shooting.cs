@@ -20,6 +20,10 @@ namespace Platformer.GamePlay
         private Vector3 SpawnPos;
         private bool IsShoot = true;
 
+        private void Start()
+        {
+            SetFireButton();
+        }
         public void SetFireButton()
         {
             FireButtonL = _uiManager.FireButtonL;
@@ -51,7 +55,6 @@ namespace Platformer.GamePlay
         {
             SpawnPos = gameObject.transform.position;
             inst_obj = Instantiate(BullPref, SpawnPos, Quaternion.identity);
-            inst_obj.GetComponent<Bullet>().k = 1;
             IsShoot = false;
             yield return new WaitForSeconds(0.5f);
             IsShoot = true;
@@ -62,7 +65,6 @@ namespace Platformer.GamePlay
             Quaternion SpawnRot = Quaternion.Euler(0, 0, 180);
             SpawnPos = gameObject.transform.position;
             inst_obj = Instantiate(BullPref, SpawnPos, SpawnRot);
-            inst_obj.GetComponent<Bullet>().k = -1f;
             IsShoot = false;
             yield return new WaitForSeconds(0.5f);
             IsShoot = true;

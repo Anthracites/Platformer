@@ -16,14 +16,12 @@ namespace Platformer.GamePlay
         private GameObject BoomEffPref;
         [SerializeField]
         private GameObject inst_obj;
-        public float k;
 
         void Start()
         {
 
             StartCoroutine(DestroyBullet());
             GetForsDest();
-
         }
 
         private IEnumerator DestroyBullet()
@@ -43,12 +41,12 @@ namespace Platformer.GamePlay
         void OnDestroy()
         {
             Vector3 SpawnPos = gameObject.transform.position;
-            inst_obj = Instantiate(BoomEffPref, SpawnPos, Quaternion.identity) as GameObject;
+            inst_obj = Instantiate(BoomEffPref, SpawnPos, Quaternion.identity);
         }
 
         void GetForsDest()
         {
-            bulletDes = transform.right * bulletforce * k;
+            bulletDes = transform.right * bulletforce;
             rb = GetComponent<Rigidbody2D>();
             rb.AddForce(bulletDes, ForceMode2D.Impulse);
         }

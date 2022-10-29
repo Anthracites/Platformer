@@ -1,17 +1,47 @@
 using UnityEngine;
+using Doozy.Engine;
+using Zenject;
 
-public class SwichCameraControl : MonoBehaviour
+namespace Platformer.GamePlay
 {
-    private string PersTag = "Pers";
-    public GameObject MinMapCam;
 
-
-    void OnTriggerEnter2D(Collider2D other)
+    public class SwichCameraControl : MonoBehaviour// класс для тригера, который переключает отслеживание персонажа на миникарте
     {
-        bool _isMove = MinMapCam.GetComponent<MinMapCamMove>().enabled;
-        if (other.tag == PersTag)
+        private string PersTag = "Pers";
+        [SerializeField]
+        private int _enterPoint, _exitPoint;
+
+
+        void OnTriggerEnter2D(Collider2D other)
         {
-            MinMapCam.GetComponent<MinMapCamMove>().enabled = !_isMove;
+
+            if (other.tag == PersTag)
+            {
+                _enterPoint = (int)other.transform.position.x;
+            }
+            //SwichTrace();
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.tag == PersTag)
+            {
+                _exitPoint = (int)other.transform.position.x;
+            }
+            SwichTrace();
+        }
+
+        void SwichTrace()
+        {
+            if (_enterPoint != _exitPoint)
+            {
+                GameEventMessage.SendEvent(EventsLibrary.SwichTraceOnMiniMap);
+            }
+        }
+
+        public class Factory : PlaceholderFactory<string, SwichCameraControl>
+        {
+
         }
     }
 }

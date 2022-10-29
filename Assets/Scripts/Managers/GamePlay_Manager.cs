@@ -8,6 +8,7 @@ namespace Platformer.GamePlay
         public int Seed;
         public int LevelNumber;
         public bool UseSeed;
+        public bool IsContunueLevelEnable;
 
         public void Initialize()
         {

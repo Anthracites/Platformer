@@ -16,8 +16,6 @@ namespace Platformer.GamePlay
         [SerializeField]
         private int i = 0;
         [SerializeField]
-        private int j = 0;
-        [SerializeField]
         private GameObject _character;
         [SerializeField]
         private Animation anim;
@@ -31,25 +29,30 @@ namespace Platformer.GamePlay
             _character = _uiManager.Character.gameObject;
             anim = gameObject.GetComponent<Animation>();
             animContr = gameObject.GetComponent<Animator>();
+            Coll = gameObject.GetComponent<PolygonCollider2D>();
+            SetupAnim();
 
         }
 
-        public void CreateCollider()
+        void SetupAnim()
         {
-            Coll = gameObject.AddComponent<PolygonCollider2D>();
-            i++;
+            float s = Random.Range(0.25f, 0.5f);
+            float f = Random.Range(0, 2);
+            bool b = Mathf.Approximately(f,1);
+            gameObject.GetComponent<SpriteRenderer>().flipX = b;
+            animContr.speed = s;
+            Debug.Log(f.ToString() + "," + b.ToString());
         }
 
-        public void ChangeColliderShape()
+        public void ChangeTag()
         {
             RemoveCollider();
-            CreateCollider();
+            //gameObject.tag = "UnactiveBorder";
         }
 
         public void RemoveCollider()
         {
             Destroy(Coll);
-            j++;
         }
 
         public void StartDestroy()
@@ -59,12 +62,13 @@ namespace Platformer.GamePlay
 
         private IEnumerator DestroyBorder()
         {
+            animContr.speed = 1;
             animContr.Play("IcePillarAnimDestroy");
             float length = gameObject.GetComponent<Animation>().clip.length;
             yield return new WaitForSeconds(length);
             Destroy(gameObject);
         }
-        
+
         public class Factory : PlaceholderFactory<string, BorderCS>
         {
 

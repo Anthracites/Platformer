@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using Doozy.Engine;
 
 namespace Platformer.GamePlay
 {
@@ -16,8 +17,6 @@ namespace Platformer.GamePlay
         private Vector2 _startCharacterPosition;
         [SerializeField]
         private bool IsTrigged = false;
-        [SerializeField]
-        private GameObject MinMapCam;
 
         public void GetCharacter()
         {
@@ -33,6 +32,7 @@ namespace Platformer.GamePlay
             if (other.gameObject == _character)
             {
                 _character.transform.position = _startCharacterPosition;
+                GameEventMessage.SendEvent(EventsLibrary.CharacterIsFalled);
                 //MinMapCam.GetComponent<MinMapCamMove>().enabled = true;
             }
         }

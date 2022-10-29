@@ -63,6 +63,7 @@ namespace Platformer.UserInterface
                 _gamePlayManager.Seed = Int32.Parse(_inpupField.text);
                 _gamePlayManager.UseSeed = true;
                 GameEventMessage.SendEvent(EventsLibrary.CallLevelCreate);
+                Time.timeScale = 1;
             }
             ClosePopUp();
         }

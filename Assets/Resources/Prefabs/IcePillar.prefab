@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 6611941372119785342}
   - component: {fileID: 6611941372119785337}
   - component: {fileID: 6611941372119785315}
-  - component: {fileID: 7442743551779671478}
   m_Layer: 0
   m_Name: IcePillar
   m_TagString: Border
@@ -31,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6611941372119785336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.18, y: 0.57, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -97,11 +96,11 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6611941372119785336}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 3c3787d83218c324eaa844dc6bdab3e0, type: 2}
+  m_Animation: {fileID: 7400000, guid: 9cffa41ae8f3544949150ca84deea5cd, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 3c3787d83218c324eaa844dc6bdab3e0, type: 2}
+  - {fileID: 7400000, guid: 9cffa41ae8f3544949150ca84deea5cd, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -122,7 +121,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 2.05, y: 3.84}
     newSize: {x: 2.06, y: 3.84}
     adaptiveTilingThreshold: 0.5
@@ -131,35 +130,35 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.145, y: -1.8299999}
-      - {x: -0.105, y: -1.8299999}
-      - {x: -0.405, y: -1.79}
-      - {x: -0.585, y: -1.65}
-      - {x: -0.555, y: -1.35}
-      - {x: -0.42499998, y: -1.15}
-      - {x: -0.39499998, y: -0.63}
-      - {x: -0.355, y: -0.71999997}
-      - {x: -0.36499998, y: -0.22}
-      - {x: -0.325, y: -0.17999999}
-      - {x: -0.325, y: 0.19999999}
-      - {x: -0.275, y: 0.29}
-      - {x: -0.285, y: 0.39999998}
-      - {x: -0.305, y: 0.64}
-      - {x: -0.225, y: 0.47}
-      - {x: -0.185, y: 0.87}
-      - {x: -0.114999995, y: 0.93}
-      - {x: -0.065, y: 1.05}
-      - {x: -0.024999999, y: 0.82}
-      - {x: -0.074999996, y: 0.66999996}
-      - {x: 0.044999998, y: 0.53}
-      - {x: 0.044999998, y: 0.32}
-      - {x: 0.044999998, y: -0.089999996}
-      - {x: 0.125, y: -0.28}
-      - {x: 0.155, y: -1.11}
-      - {x: 0.21499999, y: -1.03}
-      - {x: 0.21378478, y: -1.3018242}
-      - {x: 0.345, y: -1.52}
-      - {x: 0.345, y: -1.73}
+    - - {x: 0.145, y: 0.089999996}
+      - {x: -0.105, y: 0.089999996}
+      - {x: -0.405, y: 0.13}
+      - {x: -0.585, y: 0.26999998}
+      - {x: -0.555, y: 0.57}
+      - {x: -0.42499998, y: 0.77}
+      - {x: -0.39499998, y: 1.29}
+      - {x: -0.355, y: 1.1999999}
+      - {x: -0.36499998, y: 1.6999999}
+      - {x: -0.325, y: 1.74}
+      - {x: -0.325, y: 2.12}
+      - {x: -0.275, y: 2.21}
+      - {x: -0.285, y: 2.32}
+      - {x: -0.305, y: 2.56}
+      - {x: -0.225, y: 2.3899999}
+      - {x: -0.185, y: 2.79}
+      - {x: -0.114999995, y: 2.85}
+      - {x: -0.065, y: 2.97}
+      - {x: -0.024999999, y: 2.74}
+      - {x: -0.074999996, y: 2.59}
+      - {x: 0.044999998, y: 2.45}
+      - {x: 0.044999998, y: 2.24}
+      - {x: 0.044999998, y: 1.8299999}
+      - {x: 0.125, y: 1.64}
+      - {x: 0.155, y: 0.81}
+      - {x: 0.21499999, y: 0.89}
+      - {x: 0.21378478, y: 0.6181758}
+      - {x: 0.345, y: 0.39999998}
+      - {x: 0.345, y: 0.19}
   m_UseDelaunayMesh: 0
 --- !u!114 &6611941372119785342
 MonoBehaviour:
@@ -173,9 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c9c0b609801aa4da4421891fb7f63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Coll: {fileID: 0}
+  Coll: {fileID: 6611941372119785343}
   i: 0
-  j: 0
   _character: {fileID: 0}
   anim: {fileID: 0}
   animContr: {fileID: 0}
@@ -221,58 +219,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!60 &7442743551779671478
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6611941372119785336}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.05, y: 3.84}
-    newSize: {x: 2.06, y: 3.84}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.145, y: -1.8299999}
-      - {x: -0.105, y: -1.8299999}
-      - {x: -0.405, y: -1.79}
-      - {x: -0.585, y: -1.65}
-      - {x: -0.555, y: -1.35}
-      - {x: -0.42499998, y: -1.15}
-      - {x: -0.39499998, y: -0.63}
-      - {x: -0.355, y: -0.71999997}
-      - {x: -0.36499998, y: -0.22}
-      - {x: -0.325, y: -0.17999999}
-      - {x: -0.325, y: 0.19999999}
-      - {x: -0.275, y: 0.29}
-      - {x: -0.285, y: 0.39999998}
-      - {x: -0.305, y: 0.64}
-      - {x: -0.225, y: 0.47}
-      - {x: -0.185, y: 0.87}
-      - {x: -0.114999995, y: 0.93}
-      - {x: -0.065, y: 1.05}
-      - {x: -0.024999999, y: 0.82}
-      - {x: -0.074999996, y: 0.66999996}
-      - {x: 0.044999998, y: 0.53}
-      - {x: 0.044999998, y: 0.32}
-      - {x: 0.044999998, y: -0.089999996}
-      - {x: 0.125, y: -0.28}
-      - {x: 0.155, y: -1.11}
-      - {x: 0.21499999, y: -1.03}
-      - {x: 0.21378478, y: -1.3018242}
-      - {x: 0.345, y: -1.52}
-      - {x: 0.345, y: -1.73}
-  m_UseDelaunayMesh: 0

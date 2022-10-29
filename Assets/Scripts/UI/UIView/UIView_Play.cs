@@ -20,11 +20,13 @@ namespace Platformer.UserInterface
         private GameObject[] _chacterHPPictures;
 
         [SerializeField]
-        private Button _jumpButton, _fireButtonL, _fireButtonR;
+        private Button _jumpButton, _fireButtonL, _fireButtonR, _pauseButton;
         [SerializeField]
         private GameObject _gamePad;
         [SerializeField]
         private Slider _progressSlider;
+        [SerializeField]
+        private GameObject _miniMap, _miniMapPanel;
 
         [SerializeField]
         private int HPCount=0;
@@ -32,6 +34,7 @@ namespace Platformer.UserInterface
         private void Start()
         {
             HPCount = 0;
+            SetUIElements();
         }
         private void OnEnable()
         {
@@ -39,7 +42,10 @@ namespace Platformer.UserInterface
                 GetCharacter();
                 ConfigHPShow();
         }
-
+        public void PauseGame()
+        {
+            Time.timeScale = 0;
+        }
         void ConfigHPShow()
         {
             foreach (GameObject hp in _chacterHPPictures)
@@ -69,6 +75,8 @@ namespace Platformer.UserInterface
             _uiManager.JumpButton = _jumpButton;
             _uiManager.FireButtonL = _fireButtonL;
             _uiManager.FireButtonR = _fireButtonR;
+            _uiManager.MiniMapPanel = _miniMapPanel;
+            _uiManager.MiniMap = _miniMap;
             GetStartEndPoints();
             Debug.Log("UI element is send");
         }

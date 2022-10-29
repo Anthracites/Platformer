@@ -12,11 +12,13 @@ public class CharacterConroller : MonoBehaviour
 {
         [Inject]
         UI_Manager _uiManager;
+        [Inject]
+        GamePlay_Manager _gamePlayManager;
 
         [SerializeField]
-        private int HP, jumpCount; // ХП перса
+        private int HP, jumpCount, frameCount = 0; // ХП перса
         [SerializeField]
-        private float Speed = 1, Size, jumpforce; // скорость передвижения, размер, сила прыжка   
+        private float Speed = 1, Size, jumpforce, JumpHight; // скорость передвижения, размер, сила прыжка   
 
         [SerializeField]
         private bool IsFly = false; // полет
@@ -30,7 +32,7 @@ public class CharacterConroller : MonoBehaviour
         [SerializeField]
         private Rigidbody2D rb;
         [SerializeField]
-        private Vector3 jmp;
+        private Vector3 jmp, _startPoint;
         [SerializeField]
         private bool IsStaeyd = false;
         [SerializeField]
@@ -40,9 +42,10 @@ public class CharacterConroller : MonoBehaviour
         [SerializeField]
         private Animator Anim;
         [SerializeField]
-        private float JumpHight;
+        private IEnumerator _getJumpHight, _moveAWSD;
         [SerializeField]
-        private Vector3 _startPoint;
+        private float _r0, _r1, _r2;
+
 
 
     void Start()
@@ -56,8 +59,9 @@ public class CharacterConroller : MonoBehaviour
         float dist = Vector3.Distance(transform.position, Camera.main.transform.position);
         JumpButton.onClick.AddListener(Jump);
         Anim = GetComponent<Animator>();
+            _getJumpHight = GetJumpHight();
             _startPoint = gameObject.transform.position;
-    }
+        }
 
        void SetUIElements()
         {
@@ -65,68 +69,92 @@ public class CharacterConroller : MonoBehaviour
             GamePad = _uiManager.GamePad;
            JumpButton = _uiManager.JumpButton;
            MobileContr = GamePad.GetComponent<MobileGamePad>();
-            StartCoroutine(MoveAWSD());
+            _moveAWSD = MoveAWSD();
+            StartCoroutine(_moveAWSD);
+
         }
 
-
-    void GetJumpHight()
-    {
-
-        float r = transform.position.y;
-        if (r > JumpHight)
-        {
-            JumpHight = r;
+        private IEnumerator GetJumpHight()
+        { 
+            _r0 = gameObject.transform.position.y;
+            _r1 = _r0;
+            while (true)
+            {
+                _r2 = gameObject.transform.position.y;
+                if (_r2 > _r1)
+                {
+                    _r1 = _r2;
+                }
+                JumpHight = _r1 - _r0;
+                //Debug.Log("_r0 = " + _r0.ToString() + ", _r1 =" + _r1.ToString() + ", _r2 =" + _r2.ToString());
+                yield return null;
+            }
         }
-    }
+
         private IEnumerator MoveAWSD()
         {
+            int i = 0; 
             while (true)
             {
                 Vector2 MoveVector = Vector2.zero;
                 MoveVector.x = MobileContr.Horizontal() * Speed;
                 transform.Translate(MoveVector * Time.deltaTime);
                 yield return new WaitForEndOfFrame();
+                i++;
             }
         }
 
 
     public void Jump()
     {
-        if ((IsStaeyd == true) | (jumpCount <= 1))
+            StartCoroutine(_getJumpHight);
+            if ((IsStaeyd == true) | (jumpCount <= 1))
         {
-            rb.AddForce(jmp, ForceMode2D.Impulse);
-            jumpCount++;
-            IsStaeyd = false;
-            }
-        else
-        {
+                rb.AddForce(jmp, ForceMode2D.Impulse);
+                jumpCount++;
+         }
             IsStaeyd = false;
         }
-            GetJumpHight();
-        }
+
+
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.tag == "Border")
             {
                 GetDamage();
             }
-            Debug.Log("Collision with " + other.name);
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            IsStaeyd = true;
+            if (collision.gameObject.tag == "Border")
+            {
+                GetDamage();
+            }
+            jumpCount = 0;
+            StopCoroutine(_getJumpHight);
         }
 
         private void OnTriggerStay2D(Collider2D collision)
         {
-            if (collision.gameObject.tag == "Border")
+           if (collision.gameObject.tag == "Border")
             {
                 GetDamage();
             }
         }
 
-
-        void OnCollisionStay2D(Collision2D collision)
-    {
-        IsStaeyd = true;
-            jumpCount = 0;
+        private void OnCollisionExit2D(Collision2D collision)
+        {
+            IsStaeyd = false;
         }
+
+       // void OnCollisionStay2D(Collision2D collision)
+   // {
+      //  jumpCount = 0;
+          //  IsStaeyd = true;
+      //  }
 
 
     public void GetDamage()
@@ -138,7 +166,6 @@ public class CharacterConroller : MonoBehaviour
     {
         if ((IsNeuyas == false) & (HP > 1))
         {
-                Debug.Log("Pers damaged");
                 HP--;
             t = 2f;
             IsNeuyas = true;
@@ -151,12 +178,12 @@ public class CharacterConroller : MonoBehaviour
         }
         else if ((IsNeuyas == false) & (HP == 1))
             {
-                Debug.Log("Game over!!!!");
-                StopCoroutine(MoveAWSD());
                 Anim.enabled = true;
                 Anim.Play("PersDamaged");
+                StopCoroutine(_moveAWSD);
                 yield return new WaitForSeconds(t);
                 GameEventMessage.SendEvent(EventsLibrary.GameEnded);
+                _gamePlayManager.IsContunueLevelEnable = false;
                 DestroySelf();
 
         }

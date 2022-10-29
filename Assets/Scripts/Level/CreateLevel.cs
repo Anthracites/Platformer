@@ -15,7 +15,11 @@ namespace Platformer.GamePlay
     public class CreateLevel : MonoBehaviour // Создание уровня
     {
         [Inject]
+        PlatformController.Factory _platformFactory;
+        [Inject]
         CharacterConroller.Factory _characterFactory;
+        [Inject]
+        SwichCameraControl.Factory _swichCameraControl;
         [Inject]
         UI_Manager _uiManager;
         [Inject]
@@ -28,17 +32,13 @@ namespace Platformer.GamePlay
         [SerializeField]
         private long y;
         [SerializeField]
-        private GameObject[] _platformPrefabs;
+        private Sprite[] _platformSprites; 
         [SerializeField]
         private GameObject _platforms, _pillars, _camTriggers;
         [SerializeField]
         private GameObject StartPlatformPref;
         [SerializeField]
         private GameObject EndPlatformPref;
-        [SerializeField]
-        private GameObject CamTriggerOnPref;
-        [SerializeField]
-        private GameObject CamTriggerOffPref;
         [SerializeField]
         private GameObject SceneCamera;
         [SerializeField]
@@ -96,9 +96,10 @@ namespace Platformer.GamePlay
             SpawnCamTriggers();
             SpawnPillars();
             PersCreate();
+            _gamePlayManager.IsContunueLevelEnable = true;
 
 
-            SerilizeToFile();
+            //SerilizeToFile();
         }
         void GetSettins()
         {
@@ -135,6 +136,7 @@ namespace Platformer.GamePlay
             CoordX = 0;
             CoordY = 0;
             CoordZ = 0;
+            GameEventMessage.SendEvent(EventsLibrary.LeveCleared);
         }
 
         void GetSeed()
@@ -146,6 +148,7 @@ namespace Platformer.GamePlay
             }
             else
             {
+                UnityEngine.Random.InitState((int)DateTime.Now.Ticks);
                 bool _b;
                 int i = UnityEngine.Random.Range(-10, 10);
                 if (i >= 0)
@@ -174,10 +177,11 @@ namespace Platformer.GamePlay
 
         void GetSizesPlatform()
         {
+            _platformSprites = Resources.LoadAll<Sprite>("Sprites/Platforms");
             int i = 0;
-            foreach (GameObject Platform in _platformPrefabs)
+            foreach (Sprite platform in _platformSprites)
             {
-                PlatformSizeX = _platformPrefabs[i].GetComponent<SpriteRenderer>().bounds.size.x;
+                PlatformSizeX = _platformSprites[i].bounds.size.x;
                 i++;
                 PlatformSizes.Add(PlatformSizeX);
             }
@@ -185,23 +189,29 @@ namespace Platformer.GamePlay
 
 
         void PlatformSpawn() // Спавн платформ
-
         {
             int j = 0;
             int i = 0;
             Debug.Log("seed1 = " + _seed.ToString());
+
             while (i < LevelNumber * 100)
             {
-                Quaternion spawnRotation = Quaternion.identity;
-                j = UnityEngine.Random.Range(0, _platformPrefabs.Length);
+                var _platform = _platformFactory.Create(PrefabsPathLibrary.Platform).gameObject;
+
+
+                j = UnityEngine.Random.Range(0, _platformSprites.Length);
                 CoordY = UnityEngine.Random.Range(-4, 2);
                 CoordX += (PlatformSizes[j] * 0.5f) + (PlatformBSizeX * 0.5f);
-                Vector3 SpawnPosition = new Vector3(CoordX, CoordY, CoordZ);
-                GameObject inst_obj = Instantiate(_platformPrefabs[j], SpawnPosition, spawnRotation);
-                inst_obj.transform.parent = _platforms.transform;
+
+                _platform.GetComponent<SpriteRenderer>().sprite = _platformSprites[j];
+                _platform.AddComponent<PolygonCollider2D>();
+
+                _platform.transform.position = new Vector3(CoordX, CoordY, CoordZ);
+                _platform.transform.parent = _platforms.transform;
+
                 PlatformBSizeX = PlatformSizes[j];
-                PlatformSizeY.Add(inst_obj.GetComponent<SpriteRenderer>().bounds.size.y);
-                SpawnBorderPos.Add(SpawnPosition);
+                PlatformSizeY.Add(_platformSprites[j].bounds.size.y);
+                SpawnBorderPos.Add(_platform.transform.position);
                 i++;
             }
             _lastPlatformIndex = j;
@@ -247,27 +257,18 @@ namespace Platformer.GamePlay
 
         void SpawnCamTriggers()
         {
+            Vector3 _firstTriggerPoint = new Vector3(_uiManager.MiniMapCameraPosition.x, 0, -1);
+            Vector3 _lastTriggerPoint = new Vector3(EndArcPoint - _firstTriggerPoint.x, 0, -1);
 
-            Vector3 TriggerOffPos1 = new Vector3(100, 0, -1);
-            Quaternion spawnRotation = Quaternion.identity;
-            GameObject inst_obj = Instantiate(CamTriggerOffPref, TriggerOffPos1, spawnRotation);
-            inst_obj.GetComponent<SwichCameraControl>().MinMapCam = MinMap;
-            inst_obj.transform.SetParent(_camTriggers.transform);
+            var _MiniMapCameraFirstTrigger = _swichCameraControl.Create(PrefabsPathLibrary.MiniMapCameraTrigger).gameObject;
 
-            Vector3 TriggerOnPos1 = new Vector3(110, 0, -1);
-            inst_obj = Instantiate(CamTriggerOnPref, TriggerOnPos1, spawnRotation);
-            inst_obj.GetComponent<SwichCameraControl>().MinMapCam = MinMap;
-            inst_obj.transform.SetParent(_camTriggers.transform);
+            _MiniMapCameraFirstTrigger.transform.position = _firstTriggerPoint;
+            _MiniMapCameraFirstTrigger.transform.SetParent(_camTriggers.transform);
 
-            Vector3 TriggerOnPos2 = new Vector3(SpawnPositionArc.x - 110, 0, -1);
-            inst_obj = Instantiate(CamTriggerOnPref, TriggerOnPos2, spawnRotation);
-            inst_obj.GetComponent<SwichCameraControl>().MinMapCam = MinMap;
-            inst_obj.transform.SetParent(_camTriggers.transform);
+            var _MiniMapCameraSecondTrigger = _swichCameraControl.Create(PrefabsPathLibrary.MiniMapCameraTrigger).gameObject;
 
-            Vector3 TriggerOffPos2 = new Vector3(SpawnPositionArc.x - 100, 0, -1);
-            inst_obj = Instantiate(CamTriggerOffPref, TriggerOffPos2, spawnRotation);
-            inst_obj.GetComponent<SwichCameraControl>().MinMapCam = MinMap;
-            inst_obj.transform.SetParent(_camTriggers.transform);
+            _MiniMapCameraSecondTrigger.transform.position = _lastTriggerPoint;
+            _MiniMapCameraSecondTrigger.transform.SetParent(_camTriggers.transform);
         }
 
         void SpawnPillars()
@@ -277,9 +278,12 @@ namespace Platformer.GamePlay
             {
                 int j = UnityEngine.Random.Range(0, SpawnBorderPos.Count - 1);
                 var inst_obj = _borderFactory.Create(PrefabsPathLibrary.IcePillar);
-                float SizeY = inst_obj.gameObject.GetComponent<SpriteRenderer>().bounds.size.y;
-                Vector3 SpawnPosition = new Vector3(SpawnBorderPos[j].x, (SpawnBorderPos[j].y + (PlatformSizeY[j] * 0.5f) + (SizeY * 0.5f) - 0.25f), SpawnBorderPos[j].z);
+               // float SizeY = inst_obj.gameObject.GetComponent<SpriteRenderer>().bounds.size.y;
+                Vector3 SpawnPosition = new Vector3(SpawnBorderPos[j].x, (SpawnBorderPos[j].y + (PlatformSizeY[j] * 0.5f) - 0.25f), SpawnBorderPos[j].z);
+                float _scale = UnityEngine.Random.Range(0.50f, 2.00f);
+                Vector3 _pillarSize = new Vector3(_scale, _scale, 1.0f);
                 inst_obj.transform.position = SpawnPosition;
+                inst_obj.transform.localScale = _pillarSize;
                 inst_obj.transform.parent = _pillars.transform;
                 LevelPillars.Add(inst_obj.transform.position);
                 PlatformSizeY.RemoveAt(j);

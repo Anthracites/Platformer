@@ -10,8 +10,11 @@ namespace Platformer.UIConnection
     {
         public GameObject Character;
         public GameObject GamePad;
+        public GameObject MiniMapPanel;
+        public Vector3 MiniMapCameraPosition;
         public MobileGamePad MobileContr;
         public Button JumpButton, FireButtonL, FireButtonR;
+        public GameObject MiniMap;
         public int CharacterHP;
 
         public float StartPoint, EndPoint;

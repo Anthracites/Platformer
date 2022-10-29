@@ -24,6 +24,8 @@ public class ProjectContextInstaller : MonoInstaller
     {
         Container.BindFactory<string, CharacterConroller, CharacterConroller.Factory>().FromFactory<PrefabResourceFactory<CharacterConroller>>();
         Container.BindFactory<string, BorderCS, BorderCS.Factory>().FromFactory<PrefabResourceFactory<BorderCS>>();
+        Container.BindFactory<string, PlatformController, PlatformController.Factory>().FromFactory<PrefabResourceFactory<PlatformController>>();
+        Container.BindFactory<string, SwichCameraControl, SwichCameraControl.Factory>().FromFactory<PrefabResourceFactory<SwichCameraControl>>();
     }
 
 }

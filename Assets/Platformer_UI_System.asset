@@ -324,6 +324,13 @@ MonoBehaviour:
       m_inputSocketId: b30ae8e2-73e4-4ac1-b79b-f5356d870d9b
       m_outputNodeId: 59816f45-bcba-4a7c-a7e1-7d4a93523bd7
       m_outputSocketId: c46fe5b4-fbfd-4ed2-ac4e-6a58747684ee
+    - m_inputConnectionPoint: {x: -2, y: 4}
+      m_outputConnectionPoint: {x: 202, y: 4}
+      m_id: 4ff04819-ffa1-44a9-aa1e-46e593450de5
+      m_inputNodeId: 323851a5-fd89-4cb8-8317-d3415aff4d8a
+      m_inputSocketId: b30ae8e2-73e4-4ac1-b79b-f5356d870d9b
+      m_outputNodeId: 59816f45-bcba-4a7c-a7e1-7d4a93523bd7
+      m_outputSocketId: 3f03950d-70e9-4c72-8ebe-4990bf0d388c
     m_connectionPoints:
     - {x: -2, y: 4}
     - {x: 202, y: 4}
@@ -471,7 +478,7 @@ MonoBehaviour:
   m_version: 1
   m_description: 
   m_id: c055853f-538a-46d1-a862-4cdadcf0ec8a
-  m_lastModified: 133076371196118390
+  m_lastModified: 133101255966228600
 --- !u!114 &8314712276719001768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -613,6 +620,32 @@ MonoBehaviour:
     m_value: '{"ButtonCategory":"General","ButtonName":"Unnamed","GameEvent":"CallLevelCreate","TimeDelay":3.0,"Trigger":3}'
     m_valueTypeQualifiedName: Doozy.Engine.UI.Connections.UIConnection, Assembly-CSharp-firstpass,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - m_connectionMode: 0
+    m_connections:
+    - m_inputConnectionPoint: {x: -2, y: 4}
+      m_outputConnectionPoint: {x: 202, y: 4}
+      m_id: 4ff04819-ffa1-44a9-aa1e-46e593450de5
+      m_inputNodeId: 323851a5-fd89-4cb8-8317-d3415aff4d8a
+      m_inputSocketId: b30ae8e2-73e4-4ac1-b79b-f5356d870d9b
+      m_outputNodeId: 59816f45-bcba-4a7c-a7e1-7d4a93523bd7
+      m_outputSocketId: 3f03950d-70e9-4c72-8ebe-4990bf0d388c
+    m_connectionPoints:
+    - {x: -2, y: 4}
+    - {x: 202, y: 4}
+    m_direction: 1
+    m_canBeDeleted: 1
+    m_canBeReordered: 1
+    m_curveModifier: 0
+    m_height: 24
+    m_width: 216
+    m_x: 0
+    m_y: 134
+    m_id: 3f03950d-70e9-4c72-8ebe-4990bf0d388c
+    m_nodeId: 59816f45-bcba-4a7c-a7e1-7d4a93523bd7
+    m_socketName: OutputSocket_3
+    m_value: '{"ButtonCategory":"Platformer","ButtonName":"ContinuePlay","GameEvent":"","TimeDelay":3.0,"Trigger":0}'
+    m_valueTypeQualifiedName: Doozy.Engine.UI.Connections.UIConnection, Assembly-CSharp-firstpass,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_nodeType: 4
   m_allowDuplicateNodeName: 0
   m_allowEmptyNodeName: 0
@@ -621,7 +654,7 @@ MonoBehaviour:
   m_useFixedUpdate: 0
   m_useLateUpdate: 0
   m_useUpdate: 0
-  m_height: 176
+  m_height: 200
   m_width: 216
   m_x: -96
   m_y: -120
