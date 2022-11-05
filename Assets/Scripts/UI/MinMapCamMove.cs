@@ -23,19 +23,21 @@ public class MinMapCamMove : MonoBehaviour
     [SerializeField]
     private Camera _camera;
     [SerializeField]
-    private Vector3 _startPosition;
+    private Vector3 _startPosition, _endPosition;
 
     void  Awake()
     {
+        _isTracing = false;
         _trace = Trace();
         _camera.enabled = false;
         CreateTexture();
     }
+
     public void SetCamPosition(float _panelWidth)
     {
-        float _positionX = _panelWidth / 14.5f;
+        float _positionX = _panelWidth / 18f;
         gameObject.transform.position = new Vector3(_positionX, transform.position.y, transform.position.z);
-        _uiManager.MiniMapCameraPosition = gameObject.transform.position;
+        _uiManager.MiniMapCamera = gameObject;
         //Debug.Log("Camera on position!!!" + '\n' + "Width:" + _screenWidth.ToString());
     }
 
@@ -82,6 +84,11 @@ public class MinMapCamMove : MonoBehaviour
 
     }
 
+    void GetEndPosition()
+    {
+        _endPosition = new Vector3(_uiManager.EndPoint - _startPosition.x, gameObject.transform.position.y, gameObject.transform.position.z);
+    }
+
     public void TraceCharacter()
     {
         _character = _uiManager.Character;
@@ -92,12 +99,28 @@ public class MinMapCamMove : MonoBehaviour
     public void StopTraceCharacter()
     {
         StopCoroutine(_trace);
+        GetEndPosition();
+        transform.rotation = Quaternion.identity;
+        float f = _character.transform.position.x;
+        float c = (_uiManager.EndPoint  - _uiManager.StartPoint) / 2;
+        if (f > c)
+        {
+            transform.position = _endPosition;
+        }
+        else
+        {
+            transform.position = _startPosition;
+        }
+        Debug.Log("Character point: " + _character.transform.position.x.ToString() + ", Central point: " + c.ToString() + ", Start point: " + _startPosition.x.ToString()
+            + "End point: " + _endPosition.x.ToString());
+
     }
 
     private IEnumerator Trace()
     {
         while ((_character != null) & (_isTracing == true))
         {
+            //transform.position = _character.transform.position;
             transform.LookAt(new Vector3(_character.transform.position.x, gameObject.transform.position.y, 0));
             yield return null;
         }

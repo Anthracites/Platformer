@@ -93,19 +93,17 @@ public class CharacterConroller : MonoBehaviour
 
         private IEnumerator MoveAWSD()
         {
-            int i = 0; 
             while (true)
             {
                 Vector2 MoveVector = Vector2.zero;
                 MoveVector.x = MobileContr.Horizontal() * Speed;
                 transform.Translate(MoveVector * Time.deltaTime);
                 yield return new WaitForEndOfFrame();
-                i++;
             }
         }
 
 
-    public void Jump()
+        public void Jump()
     {
             StartCoroutine(_getJumpHight);
             if ((IsStaeyd == true) | (jumpCount <= 1))
@@ -149,12 +147,13 @@ public class CharacterConroller : MonoBehaviour
         {
             IsStaeyd = false;
         }
-
-       // void OnCollisionStay2D(Collision2D collision)
-   // {
-      //  jumpCount = 0;
-          //  IsStaeyd = true;
-      //  }
+        void OnCollisionStay2D(Collision2D collision)
+    {
+            if (collision.gameObject.tag == "Border")
+            {
+                GetDamage();
+            }
+        }
 
 
     public void GetDamage()

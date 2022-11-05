@@ -10,6 +10,12 @@ namespace Platformer.GamePlay
         public bool UseSeed;
         public bool IsContunueLevelEnable;
 
+        public float LevelTime; // Время, за которое был пройден уровень
+        public int Damage; // Полученный персонажем урон
+        public int Shoots; // Выстрела за уровень
+        public float Accuracy; // Точность стрельбы
+        public int Coins; // Собранные монетки (возможно, будет другой дроп)
+
         public void Initialize()
         {
 

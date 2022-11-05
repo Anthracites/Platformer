@@ -7,6 +7,7 @@ namespace Platformer
         public static string IcePillar = "Prefabs/IcePillar";
         public static string Platform = "Prefabs/PlatformPrefab";
         public static string MiniMapCameraTrigger = "Prefabs/CamTrigger";
+        public static string StatisticValuePanel = "Prefabs/UI/StatisticValuePanel";
 
     }
 }

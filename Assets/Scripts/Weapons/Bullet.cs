@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Doozy.Engine;
 
 namespace Platformer.GamePlay
 {
@@ -32,9 +33,15 @@ namespace Platformer.GamePlay
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.tag == "Border")
+
+                if (other.tag == "Border")
+                {
+                    other.GetComponent<BorderCS>().StartDestroy();
+                GameEventMessage.SendEvent(EventsLibrary.CharacterHitTarget);
+                Destroy(gameObject);
+            }
+            if (other.tag == "Platform")
             {
-                other.GetComponent<BorderCS>().StartDestroy();
                 Destroy(gameObject);
             }
         }

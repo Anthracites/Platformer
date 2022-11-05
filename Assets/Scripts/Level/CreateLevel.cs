@@ -93,7 +93,7 @@ namespace Platformer.GamePlay
             //
             PlatformSpawn();
             SpawnEndPlatform();
-            SpawnCamTriggers();
+            SpawnCamTrigger();
             SpawnPillars();
             PersCreate();
             _gamePlayManager.IsContunueLevelEnable = true;
@@ -192,7 +192,7 @@ namespace Platformer.GamePlay
         {
             int j = 0;
             int i = 0;
-            Debug.Log("seed1 = " + _seed.ToString());
+            //            Debug.Log("seed1 = " + _seed.ToString());
 
             while (i < LevelNumber * 100)
             {
@@ -252,22 +252,29 @@ namespace Platformer.GamePlay
             Vector3 _spawnPositionArc = new Vector3(StartArcPoint, _characterSpawnY, -1);
             _character.transform.position = _spawnPositionArc;
             _uiManager.Character = _character.gameObject;
+            _character.transform.SetParent(gameObject.transform);
             GameEventMessage.SendEvent(EventsLibrary.CharacterCreated);
         }
 
-        void SpawnCamTriggers()
+        void SpawnCamTrigger()
         {
-            Vector3 _firstTriggerPoint = new Vector3(_uiManager.MiniMapCameraPosition.x, 0, -1);
-            Vector3 _lastTriggerPoint = new Vector3(EndArcPoint - _firstTriggerPoint.x, 0, -1);
+           var _miniMapCameraTrigger = _swichCameraControl.Create(PrefabsPathLibrary.MiniMapCameraTrigger).gameObject;
+            _miniMapCameraTrigger.transform.SetParent(_camTriggers.transform);
+        }
+
+        void SpawnCamTriggersOld()
+        {
+            //Vector3 _firstTriggerPoint = new Vector3(_uiManager.MiniMapCameraPosition.x, 0, -1);
+            //Vector3 _lastTriggerPoint = new Vector3(EndArcPoint - _firstTriggerPoint.x, 0, -1);
 
             var _MiniMapCameraFirstTrigger = _swichCameraControl.Create(PrefabsPathLibrary.MiniMapCameraTrigger).gameObject;
 
-            _MiniMapCameraFirstTrigger.transform.position = _firstTriggerPoint;
+            //_MiniMapCameraFirstTrigger.transform.position = _firstTriggerPoint;
             _MiniMapCameraFirstTrigger.transform.SetParent(_camTriggers.transform);
 
             var _MiniMapCameraSecondTrigger = _swichCameraControl.Create(PrefabsPathLibrary.MiniMapCameraTrigger).gameObject;
 
-            _MiniMapCameraSecondTrigger.transform.position = _lastTriggerPoint;
+            //_MiniMapCameraSecondTrigger.transform.position = _lastTriggerPoint;
             _MiniMapCameraSecondTrigger.transform.SetParent(_camTriggers.transform);
         }
 

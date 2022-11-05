@@ -30,18 +30,20 @@ namespace Platformer.GamePlay
             anim = gameObject.GetComponent<Animation>();
             animContr = gameObject.GetComponent<Animator>();
             Coll = gameObject.GetComponent<PolygonCollider2D>();
-            SetupAnim();
-
+            ConfigPillar();
         }
 
-        void SetupAnim()
+        void ConfigPillar()
         {
             float s = Random.Range(0.25f, 0.5f);
             float f = Random.Range(0, 2);
             bool b = Mathf.Approximately(f,1);
-            gameObject.GetComponent<SpriteRenderer>().flipX = b;
+            if (b)
+            {
+                gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
             animContr.speed = s;
-            Debug.Log(f.ToString() + "," + b.ToString());
+//            Debug.Log(f.ToString() + "," + b.ToString());
         }
 
         public void ChangeTag()

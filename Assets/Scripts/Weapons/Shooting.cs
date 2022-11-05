@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 using Platformer.UIConnection;
+using Doozy.Engine;
 
 namespace Platformer.GamePlay
 {
@@ -37,7 +38,6 @@ namespace Platformer.GamePlay
             if (IsShoot == true)
             {
                 StartCoroutine(ShootR());
-                Debug.Log("SootR");
             }
         }
 
@@ -46,7 +46,6 @@ namespace Platformer.GamePlay
             if (IsShoot == true)
             {
                 StartCoroutine(ShootL());
-                Debug.Log("SootL");
             }
         }
 
@@ -58,6 +57,7 @@ namespace Platformer.GamePlay
             IsShoot = false;
             yield return new WaitForSeconds(0.5f);
             IsShoot = true;
+            GameEventMessage.SendEvent(EventsLibrary.CharacterShoot);
         }
 
         private IEnumerator ShootL()
@@ -68,6 +68,7 @@ namespace Platformer.GamePlay
             IsShoot = false;
             yield return new WaitForSeconds(0.5f);
             IsShoot = true;
+            GameEventMessage.SendEvent(EventsLibrary.CharacterShoot);
         }
     }
 }

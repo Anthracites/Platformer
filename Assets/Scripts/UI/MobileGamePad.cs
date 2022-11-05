@@ -41,8 +41,8 @@ public class MobileGamePad : MonoBehaviour, IDragHandler, IPointerUpHandler, IPo
 
     public float Horizontal()
     {
-        if (inputVector.x != 0) return inputVector.x;
-        else return Input.GetAxis("Horizontal");
+         if (inputVector.x != 0) return inputVector.x;
+         else return Input.GetAxis("Horizontal");
     }
 
     public float Vertical()
