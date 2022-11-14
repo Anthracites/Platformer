@@ -111,7 +111,7 @@ namespace Platformer.UserInterface
 
         public void ReloadGame()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         private IEnumerator ShowProgress()

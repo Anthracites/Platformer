@@ -2,9 +2,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 using Doozy.Engine;
 using Zenject;
 using Platformer.UIConnection;
+using Platformer.Services;
 
 namespace Platformer.GamePlay
 { 
@@ -45,10 +47,18 @@ public class CharacterConroller : MonoBehaviour
         private IEnumerator _getJumpHight, _moveAWSD;
         [SerializeField]
         private float _r0, _r1, _r2;
+        [SerializeField]
+        private LayerMask groundLayer;
+        [SerializeField]
+        private float collisionBuffer = 2, stepHeight, _distance, _stepOverHight;
+        [SerializeField]
+        private GameObject _pointPref;
 
+        private float contactPoint, characterCenter, characterBottom, maxCollisionPointY;
+        private float[] contactPoints;
+        private Vector3 relativePoint;
 
-
-    void Start()
+        void Start()
     {
             _uiManager.CharacterHP = HP;
             SetUIElements();
@@ -123,7 +133,47 @@ public class CharacterConroller : MonoBehaviour
                 GetDamage();
             }
         }
+        void StepOver(Collision2D _barrier)
+        {
 
+            if (_barrier.gameObject.tag == "Platform")
+            {
+                characterCenter = gameObject.transform.position.y;
+                characterBottom = characterCenter - ((GetComponent<SpriteRenderer>().sprite.bounds.size.y * transform.localScale.y)/2);
+                var _contacts = _barrier.contacts;
+
+                int i = 0;
+                int k = 0;
+                contactPoints = new float[_contacts.Length + 1];
+
+                float maxY = characterBottom;
+
+                foreach (ContactPoint2D _contact in _contacts)
+                {
+                    contactPoints[i] =_contact.point.y;
+                    if(maxY < _contact.point.y)
+                    {
+                        maxY = _contact.point.y;
+                        k = i;
+                    }
+
+                    i++;
+                }
+
+                Vector3 maxCollisionPoint = new Vector3(_contacts[k].point.x, _contacts[k].point.y, transform.position.z);
+                maxCollisionPointY = Mathf.Abs(maxY);
+                float _stepHight = (characterBottom - maxY) * 1.01f;
+
+                relativePoint = transform.InverseTransformPoint(maxCollisionPoint);
+
+
+                //relativePoint = transform.InverseTransformPoint(maxCollisionPoint);
+                transform.position = new Vector3(transform.position.x, transform.position.y + Mathf.Abs(_stepHight), transform.position.z);
+
+                Debug.Log("Collision whiht: " + _barrier.gameObject.name + " Step hight: " + _stepHight.ToString());
+            }
+
+        }
         private void OnCollisionEnter2D(Collision2D collision)
         {
             IsStaeyd = true;
@@ -131,8 +181,42 @@ public class CharacterConroller : MonoBehaviour
             {
                 GetDamage();
             }
+
+            StepOver(collision);
             jumpCount = 0;
             StopCoroutine(_getJumpHight);
+        }
+
+        [Button(nameof(CreatePoints))]
+        public bool buttonField;
+        public void CreatePoints()
+        {
+            CreatePoint(characterCenter, "characterCenter");
+            CreatePoint(characterBottom, "characterBottom");
+            CreatePoint(maxCollisionPointY, "maxCollisionPointY");
+            CreatePoint(stepHeight, "StepHight");
+            CreatePoint(relativePoint.y, "relativePoint");
+
+            int i = 0;
+
+            foreach (float _point in contactPoints)
+            {
+                CreatePoint(_point, "Point" + i.ToString());
+                i++;
+            }
+            Debug.Log("Points drowed!!!");
+        }
+
+        void CreatePoint(float _coordY, string _pointName)
+        {
+            float x = gameObject.transform.position.x;
+            float z = gameObject.transform.position.z;
+            GameObject _point;
+
+            _point = Instantiate(_pointPref);
+            _point.transform.position = new Vector3(x, _coordY, z);
+            _point.name = _pointName;
+            _point.transform.SetParent(gameObject.transform);
         }
 
         private void OnTriggerStay2D(Collider2D collision)
@@ -155,7 +239,6 @@ public class CharacterConroller : MonoBehaviour
             }
         }
 
-
     public void GetDamage()
     {
         StartCoroutine(Damage());
@@ -177,9 +260,12 @@ public class CharacterConroller : MonoBehaviour
         }
         else if ((IsNeuyas == false) & (HP == 1))
             {
+                StopCoroutine(_moveAWSD);
+
+                IsNeuyas = true;
+                GameEventMessage.SendEvent(EventsLibrary.ChacterGotDamage);
                 Anim.enabled = true;
                 Anim.Play("PersDamaged");
-                StopCoroutine(_moveAWSD);
                 yield return new WaitForSeconds(t);
                 GameEventMessage.SendEvent(EventsLibrary.GameEnded);
                 _gamePlayManager.IsContunueLevelEnable = false;
@@ -187,12 +273,17 @@ public class CharacterConroller : MonoBehaviour
 
         }
     }
-
         public void DestroySelf()
         {
             Destroy(gameObject);
         }
 
+        private void StepOver(float _barrierHight)
+        {
+                gameObject.transform.position = new Vector3(transform.position.x, (transform.position.y + _barrierHight), gameObject.transform.position.z);
+        }
+
+        
         public class Factory : PlaceholderFactory<string, CharacterConroller>
         {
 

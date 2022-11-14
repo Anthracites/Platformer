@@ -212,6 +212,7 @@ namespace Platformer.GamePlay
                 PlatformBSizeX = PlatformSizes[j];
                 PlatformSizeY.Add(_platformSprites[j].bounds.size.y);
                 SpawnBorderPos.Add(_platform.transform.position);
+                _platform.name += i.ToString();
                 i++;
             }
             _lastPlatformIndex = j;
@@ -240,7 +241,9 @@ namespace Platformer.GamePlay
             CoordX += PlatformSizes[_lastPlatformIndex] + (a + b)/2;
             SpawnPositionArc = new Vector3(CoordX, CoordY, -1);
             Quaternion spawnRotation = Quaternion.identity;
-            GameObject inst_obj = Instantiate(EndPlatformPref, SpawnPositionArc, spawnRotation);
+            GameObject inst_obj = _platformFactory.Create(PrefabsPathLibrary.EndPlatform).gameObject;
+            //GameObject inst_obj = Instantiate(EndPlatformPref, SpawnPositionArc, spawnRotation);
+            inst_obj.transform.position = SpawnPositionArc;
             inst_obj.transform.parent = _platforms.transform;
             EndArcPoint = SpawnPositionArc.x;
             _uiManager.EndPoint = EndArcPoint;

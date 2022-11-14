@@ -30,7 +30,7 @@ public class MinMapCamMove : MonoBehaviour
         _isTracing = false;
         _trace = Trace();
         _camera.enabled = false;
-        CreateTexture();
+        //CreateTexture();
     }
 
     public void SetCamPosition(float _panelWidth)
@@ -120,8 +120,8 @@ public class MinMapCamMove : MonoBehaviour
     {
         while ((_character != null) & (_isTracing == true))
         {
-            //transform.position = _character.transform.position;
-            transform.LookAt(new Vector3(_character.transform.position.x, gameObject.transform.position.y, 0));
+            transform.position = new Vector3(_character.transform.position.x, gameObject.transform.position.y, -84);
+            //transform.LookAt(new Vector3(_character.transform.position.x, gameObject.transform.position.y, 0));
             yield return null;
         }
     }

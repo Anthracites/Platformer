@@ -32,7 +32,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7846689736216353870}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.26, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 99
+  m_SortingOrder: 97
   m_Sprite: {fileID: 21300000, guid: 0ba022dc3909e154fa83c095003dc209, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -191,7 +191,7 @@ MonoBehaviour:
   frameCount: 0
   Speed: 7
   Size: 0
-  jumpforce: 2
+  jumpforce: 3
   JumpHight: 0
   IsFly: 0
   IsNeuyas: 0
@@ -207,6 +207,16 @@ MonoBehaviour:
   _r0: 0
   _r1: 0
   _r2: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  collisionBuffer: 2
+  stepHeight: 1
+  _distance: 0
+  _stepOverHight: 0
+  _pointPref: {fileID: 6873379428517000373, guid: 0fb2dab16d00741b5a659f4c310021b0,
+    type: 3}
+  buttonField: 0
 --- !u!114 &5788371369916106364
 MonoBehaviour:
   m_ObjectHideFlags: 0

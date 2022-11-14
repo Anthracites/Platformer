@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 316999592231178381}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StartPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 316999593885927230}
   - component: {fileID: 316999593885927231}
   - component: {fileID: 316999593885927228}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StartArc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 994424962379180099}
   - component: {fileID: 5163602624495598467}
   - component: {fileID: 7783545903598318051}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlatformSmallSlised2
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 3881836485906117670}
   - component: {fileID: 2099350458746507204}
   - component: {fileID: 9089856489443293559}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlatformLong
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -468,7 +468,7 @@ GameObject:
   - component: {fileID: 6816907831831133555}
   - component: {fileID: 6816907831831133554}
   - component: {fileID: 6816907831831133581}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Lightning
   m_TagString: Untagged
   m_Icon: {fileID: 0}

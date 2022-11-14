@@ -61,8 +61,10 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SimpleScript.cs" />
     <Compile Include="Assets/Scripts/Level/PlatformController.cs" />
     <Compile Include="Assets/Scripts/UI/UIView/UIView_Menu.cs" />
+    <Compile Include="Assets/Scripts/Character/CharacterArea.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01_UGUI.cs" />
     <Compile Include="Assets/Scripts/UI/EnterPopUp.cs" />
+    <Compile Include="Assets/Scripts/Level/GameStatistics.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_A.cs" />
     <Compile Include="Assets/Scripts/Directories/EventsLibrary.cs" />
     <Compile Include="Assets/Scripts/Managers/UI_Manager.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ChatController.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshProFloatingText.cs" />
     <Compile Include="Assets/Scripts/Level/BorderCS.cs" />
+    <Compile Include="Assets/Scripts/Level/LevelComplete.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeB.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/EnvMapAnimator.cs" />
     <Compile Include="Assets/Scripts/Managers/ProjectContextInstaller.cs" />
@@ -91,6 +94,7 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ShaderPropAnimator.cs" />
     <Compile Include="Assets/packages/ui-flexbox/UIFlexBoxEditor.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/WarpTextExample.cs" />
+    <Compile Include="Assets/Scripts/UI/UIView/UIView_EndGame.cs" />
     <Compile Include="Assets/Scripts/Level/ReloadLevel.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_DigitValidator.cs" />
     <Compile Include="Assets/Scripts/Character/CameraMove.cs" />
@@ -106,6 +110,7 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventHandler.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_B.cs" />
     <Compile Include="Assets/Scripts/Weapons/DestroyBoomEff.cs" />
+    <Compile Include="Assets/Scripts/UI/InspectorButton.cs" />
     <Compile Include="Assets/Scripts/Directories/PrefabsPathLibrary.cs" />
     <Compile Include="Assets/Scripts/Weapons/Bullet.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/DropdownSample.cs" />
@@ -118,8 +123,6 @@
     <Compile Include="Assets/Scripts/Character/CharacterConroller.cs" />
     <Compile Include="Assets/Scripts/Directories/PopUpsLibrary.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01.cs" />
-    <Compile Include="Assets/Scripts/Level/GameStatistics.cs" />
-    <Compile Include="Assets/Scripts/UI/UIView/UIView_EndGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

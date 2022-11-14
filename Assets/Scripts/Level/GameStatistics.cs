@@ -19,8 +19,6 @@ namespace Platformer.GamePlay
         [SerializeField]
         private int _hitTargets;
         [SerializeField]
-        private float _accuracy;
-        [SerializeField]
         private int _coins;
         [SerializeField]
         private IEnumerator _timeCounter;
@@ -65,6 +63,13 @@ namespace Platformer.GamePlay
             }
         }
 
+        private float Accuracy()
+        {
+            float _accuracy = (float)Math.Round(((float)_hitTargets / (float)_shoots), 2) * 100;
+            return _accuracy;
+        }
+
+
         public void SendStatistics() // Подсписать на событие LevelComplete и GameEnded
         {
             StopCoroutine(_timeCounter);
@@ -72,15 +77,8 @@ namespace Platformer.GamePlay
             _gamePlayManager.Damage = _damage;
             _gamePlayManager.Coins = _coins;
             _gamePlayManager.Shoots = _shoots;
-            AccuracyCount();
-            _gamePlayManager.Accuracy = _accuracy;
+            _gamePlayManager.Accuracy = Accuracy();
         }
-
-        private void AccuracyCount()
-        {
-            _accuracy = (float)Math.Round(((float)_hitTargets / (float)_shoots), 2) * 100;
-        }
-
         public void ResetStatistic()// Вызывать перед новым запуском
         {
             _levelTime = 0;

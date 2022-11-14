@@ -22,7 +22,7 @@ namespace Platformer.GamePlay
 
         private IEnumerator MoveWhithCharacter()
         {
-            while (true)
+            while (_character != null)
             {
                 gameObject.transform.position = new Vector3(_character.transform.position.x, _character.transform.position.y, gameObject.transform.position.z);
                 yield return new WaitForEndOfFrame();
