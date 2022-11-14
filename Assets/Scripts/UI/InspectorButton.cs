@@ -45,3 +45,9 @@ public class ButtonDrawer : PropertyDrawer
         }
     }
 }
+//exaple of using
+//[Button(nameof(CreatePoints))]
+//public bool buttonField;
+//public void CreatePoints()
+//{
+//}

@@ -54,7 +54,7 @@ public class CharacterConroller : MonoBehaviour
         [SerializeField]
         private GameObject _pointPref;
 
-        private float contactPoint, characterCenter, characterBottom, maxCollisionPointY;
+        private float characterCenter, characterBottom, maxCollisionPointY, characterSize;
         private float[] contactPoints;
         private Vector3 relativePoint;
 
@@ -140,10 +140,10 @@ public class CharacterConroller : MonoBehaviour
             {
                 characterCenter = gameObject.transform.position.y;
                 characterBottom = characterCenter - ((GetComponent<SpriteRenderer>().sprite.bounds.size.y * transform.localScale.y)/2);
+                characterSize = GetComponent<SpriteRenderer>().sprite.bounds.size.y * transform.localScale.y;
                 var _contacts = _barrier.contacts;
 
                 int i = 0;
-                int k = 0;
                 contactPoints = new float[_contacts.Length + 1];
 
                 float maxY = characterBottom;
@@ -154,23 +154,17 @@ public class CharacterConroller : MonoBehaviour
                     if(maxY < _contact.point.y)
                     {
                         maxY = _contact.point.y;
-                        k = i;
                     }
-
                     i++;
                 }
 
-                Vector3 maxCollisionPoint = new Vector3(_contacts[k].point.x, _contacts[k].point.y, transform.position.z);
                 maxCollisionPointY = Mathf.Abs(maxY);
-                float _stepHight = (characterBottom - maxY) * 1.01f;
+                float _stepHight = Mathf.Abs((characterBottom - maxY) * 1.01f);
 
-                relativePoint = transform.InverseTransformPoint(maxCollisionPoint);
-
-
-                //relativePoint = transform.InverseTransformPoint(maxCollisionPoint);
-                transform.position = new Vector3(transform.position.x, transform.position.y + Mathf.Abs(_stepHight), transform.position.z);
-
-                Debug.Log("Collision whiht: " + _barrier.gameObject.name + " Step hight: " + _stepHight.ToString());
+                if (_stepHight < characterSize)
+                {
+                    transform.position = new Vector3(transform.position.x, transform.position.y + _stepHight, transform.position.z);
+                }
             }
 
         }
@@ -185,38 +179,6 @@ public class CharacterConroller : MonoBehaviour
             StepOver(collision);
             jumpCount = 0;
             StopCoroutine(_getJumpHight);
-        }
-
-        [Button(nameof(CreatePoints))]
-        public bool buttonField;
-        public void CreatePoints()
-        {
-            CreatePoint(characterCenter, "characterCenter");
-            CreatePoint(characterBottom, "characterBottom");
-            CreatePoint(maxCollisionPointY, "maxCollisionPointY");
-            CreatePoint(stepHeight, "StepHight");
-            CreatePoint(relativePoint.y, "relativePoint");
-
-            int i = 0;
-
-            foreach (float _point in contactPoints)
-            {
-                CreatePoint(_point, "Point" + i.ToString());
-                i++;
-            }
-            Debug.Log("Points drowed!!!");
-        }
-
-        void CreatePoint(float _coordY, string _pointName)
-        {
-            float x = gameObject.transform.position.x;
-            float z = gameObject.transform.position.z;
-            GameObject _point;
-
-            _point = Instantiate(_pointPref);
-            _point.transform.position = new Vector3(x, _coordY, z);
-            _point.name = _pointName;
-            _point.transform.SetParent(gameObject.transform);
         }
 
         private void OnTriggerStay2D(Collider2D collision)
