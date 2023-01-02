@@ -3,9 +3,8 @@ namespace Platformer
     public class EventsLibrary
     {
         public static string PlayRandomGame = "PlayRandomGame"; //случайная генерация уровня
-        public static string PlaySeedGame = "PlaySeedGame"; // генерация уровня с использованием определенного сида
-        public static string GoToCreator = "GoToCreator"; // переход к ручному созданию уровня  из меню
         public static string PlayCreateGame = "PlayCreateGame"; // ручное создание уровня из поатформ и/или противников
+        public static string GoToCreator = "GoToCreator"; // Переход в режик конструктора уровней
 
         public static string ChacterGotDamage = "ChacterGotDamage"; // персонаж получил урон
         public static string SwichTraceOnMiniMap = "SwichTraceOnMiniMap"; // песонаж дошел до центра первого экрана и нужно начать его отслежвать на миникарте
@@ -26,5 +25,7 @@ namespace Platformer
         public static string LevelComplete = "LevelComplete"; // Уровень пройден
 
         public static string NoNeedCamerasTrigger = "NoNeedCamerasTrigger"; // Перемещение камеры на центр карты если карты небольшая или экран очень большой;
+
+        public static string ShowPopUp = "ShowPopUp"; //Запрос на показ попапа, данные для показа в менеждере
     }
 }

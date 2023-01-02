@@ -11,6 +11,8 @@ namespace Platformer.GamePlay
     {
         [Inject]
         UI_Manager _uiManager;
+        [Inject]
+        GamePlay_Manager _gamePlay_Manager;
 
         [SerializeField]
         private GameObject _character;
@@ -26,8 +28,9 @@ namespace Platformer.GamePlay
             if (other.gameObject == _character)
             {
                 Debug.Log("Level complete");
+                _gamePlay_Manager.IsContunueLevelEnable = false;
                 GameEventMessage.SendEvent(EventsLibrary.GameEnded);
-                Debug.LogError("Trigger!!!");
+//                Debug.LogError("Trigger!!!");
             }
         }
 
@@ -36,6 +39,7 @@ namespace Platformer.GamePlay
             if (collision.gameObject == _character)
             {
                 Debug.Log("Level complete");
+                _gamePlay_Manager.IsContunueLevelEnable = false;
                 GameEventMessage.SendEvent(EventsLibrary.GameEnded);
                 Debug.LogError("Collision!!!");
             }

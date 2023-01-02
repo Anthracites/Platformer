@@ -4,11 +4,16 @@ using UnityEngine;
 using Zenject;
 using Platformer.GamePlay;
 using TMPro;
+using Doozy.Engine;
+using Platformer.UserInterface.PopUp;
 
 namespace Platformer.UserInterface
 {
     public class UIView_EndGame : MonoBehaviour
     {
+        [Inject]
+        PopUp_Manager _popup_Manager;
+
         [Inject]
         GamePlay_Manager _gamePlayManager;
 
@@ -18,6 +23,8 @@ namespace Platformer.UserInterface
         private GameObject _generalStatisticPanel;
         [SerializeField]
         private float _levelTime, _levelDamage, _levelCoin, _levelAccuracy;
+        [SerializeField]
+        private int _seed;
 
         void CleanStatistic()// Подписать на кнопку "Continue"
         {
@@ -33,7 +40,7 @@ namespace Platformer.UserInterface
 
         }
 
-        void ApplyStats(string _statName, float _statValue, string _unit)
+        void ApplyStats(string _statName, dynamic _statValue, string _unit)
         {
             var _statisticValuePanel = Instantiate(Resources.Load(PrefabsPathLibrary.StatisticValuePanel) as GameObject);
             _statisticValuePanel.transform.SetParent(_generalStatisticPanel.transform);
@@ -47,6 +54,7 @@ namespace Platformer.UserInterface
             _levelDamage = _gamePlayManager.Damage;
             _levelCoin = _gamePlayManager.Coins;
             _levelAccuracy = _gamePlayManager.Accuracy;
+            _seed = _gamePlayManager.Seed;
         }
 
         void ShowStatistic()
@@ -55,6 +63,24 @@ namespace Platformer.UserInterface
             ApplyStats("Got damage:", _levelDamage, "");
             ApplyStats("Collected coins:", _levelCoin, "");
             ApplyStats("Accuracy on level:", _levelAccuracy, " %");
+            ApplyStats("Seed:", _seed, "");
+        }
+
+        public void CopySeed()
+        {
+            TextEditor _text = new TextEditor();
+            _text.text = _seed.ToString();
+            _text.SelectAll();
+            _text.Copy();
+            _popup_Manager.CurrentPopUpConfig = PopUpConfigLibrary.SeedCopiedPopUpConfig;
+            GameEventMessage.SendEvent(EventsLibrary.ShowPopUp);
+        }
+
+        public void Restart()
+        {
+            _gamePlayManager.UseSeed = false;
+            GameEventMessage.SendEvent(EventsLibrary.CallLevelCreate);
+            Time.timeScale = 1;
         }
 
         private void OnEnable()

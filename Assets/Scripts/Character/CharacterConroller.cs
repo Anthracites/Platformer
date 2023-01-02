@@ -235,6 +235,11 @@ public class CharacterConroller : MonoBehaviour
 
         }
     }
+        public void StopMove()
+        {
+            StopCoroutine(_moveAWSD);
+        }
+
         public void DestroySelf()
         {
             Destroy(gameObject);

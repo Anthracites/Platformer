@@ -1,13 +1,13 @@
 using UnityEngine;
 using Zenject;
 using Platformer;
+using Platformer.UserInterface.PopUp;
 
 namespace Platformer.UserInterface
 { 
 public class PopUp_Manager : IInitializable
     {
-    public Sprite Icon;
-    public string Title;
+        public PopUpConfig CurrentPopUpConfig;
 
         public void Initialize()
         {

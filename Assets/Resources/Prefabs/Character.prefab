@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3007069546521551281}
   - component: {fileID: 5788371369916106364}
   - component: {fileID: 9150241982930470813}
+  - component: {fileID: -8440787377343206844}
   m_Layer: 0
   m_Name: Character
   m_TagString: Pers
@@ -216,7 +217,6 @@ MonoBehaviour:
   _stepOverHight: 0
   _pointPref: {fileID: 6873379428517000373, guid: 0fb2dab16d00741b5a659f4c310021b0,
     type: 3}
-  buttonField: 0
 --- !u!114 &5788371369916106364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,4 +276,34 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   GameEvent: GoToCreator
+  ListenForAllGameEvents: 0
+--- !u!114 &-8440787377343206844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7846689736216353870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea9f92203d31e240bc110ff7b26d05c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DebugMode: 0
+  Event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3007069546521551281}
+        m_TargetAssemblyTypeName: Platformer.GamePlay.CharacterConroller, Assembly-CSharp
+        m_MethodName: StopMove
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  GameEvent: GameEnded
   ListenForAllGameEvents: 0

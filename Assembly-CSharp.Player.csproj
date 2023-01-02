@@ -63,7 +63,7 @@
     <Compile Include="Assets/Scripts/UI/UIView/UIView_Menu.cs" />
     <Compile Include="Assets/Scripts/Character/CharacterArea.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01_UGUI.cs" />
-    <Compile Include="Assets/Scripts/UI/EnterPopUp.cs" />
+    <Compile Include="Assets/Scripts/UI/PopUp/PopUpController.cs" />
     <Compile Include="Assets/Scripts/Level/GameStatistics.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_A.cs" />
     <Compile Include="Assets/Scripts/Directories/EventsLibrary.cs" />
@@ -113,6 +113,7 @@
     <Compile Include="Assets/Scripts/UI/InspectorButton.cs" />
     <Compile Include="Assets/Scripts/Directories/PrefabsPathLibrary.cs" />
     <Compile Include="Assets/Scripts/Weapons/Bullet.cs" />
+    <Compile Include="Assets/Scripts/UI/PopUp/PopUpConfig.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/DropdownSample.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexColorCycler.cs" />
